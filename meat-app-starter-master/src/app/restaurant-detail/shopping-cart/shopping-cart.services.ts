@@ -8,6 +8,15 @@ export class ShoppingCartService{
         this.itens = []
     } 
     
+    inscreaseQty(item:CartItem){
+        item.quantity = item.quantity + 1;
+    }
+    decreaseQty(item:CartItem){
+        item.quantity = item.quantity - 1;
+        if(item.quantity === 0){
+            this.remove(item);
+        }
+    }
     addItme(item:MenuItem){
         let foundItem = this.itens.find((mItem) => mItem.menuItem.id == item.id)
         if(foundItem){
