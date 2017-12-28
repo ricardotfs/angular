@@ -1,9 +1,15 @@
 import { CartItem } from "app/restaurant-detail/shopping-cart/cart-item.model";
 import { MenuItem } from "app/restaurant-detail/menu-item/menu-item.model";
+import { Injectable } from "@angular/core";
+import { Notification } from "rxjs/Notification";
+import { NotificationServices } from "app/shared/messages/notification.services";
 
+@Injectable()
 export class ShoppingCartService{
     itens:CartItem[] = []
+    constructor(private notificationsServices:NotificationServices){
 
+    }
     clear(){
         this.itens = []
     } 
@@ -18,16 +24,19 @@ export class ShoppingCartService{
         }
     }
     addItme(item:MenuItem){
-        let foundItem = this.itens.find((mItem) => mItem.menuItem.id == item.id)
+        let foundItem = this.itens.find((mItem) => mItem.menuItem.id === item.id)
         if(foundItem){
             foundItem.quantity = foundItem.quantity + 1
         }else{
             this.itens.push(new CartItem(item))
         }
+        this.notificationsServices.notify(`Você adicionou o item ${item.name}`);
     }
 
     remove(item:CartItem){
         this.itens.splice(this.itens.indexOf(item),1);
+        this.notificationsServices.notify(`Você adicionou o item ${item.menuItem.name}`);
+        
     }
 
     total():number{

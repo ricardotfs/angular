@@ -1,8 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
-
+import { RouterModule,PreloadAllModules } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -17,7 +16,9 @@ import { RestaurantDetailComponent } from 'app/restaurant-detail/restaurant-deta
 import { ReviewsComponent } from 'app/restaurant-detail/reviews/reviews.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { SharedModule } from 'app/shared/shared.module';
-import { CoreModule } from 'app/core/core.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Router } from '@angular/router/src/router';
+
 
 @NgModule({
   declarations: [
@@ -35,8 +36,10 @@ import { CoreModule } from 'app/core/core.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     SharedModule.forRoot(),
     HttpModule,
+    //RouterModule.forRoot(ROUTES,{preloadingStrategy:PreloadAllModules}),
     RouterModule.forRoot(ROUTES),
   ],
   providers: [{provide:LOCALE_ID,useValue:'pt-BR'}],

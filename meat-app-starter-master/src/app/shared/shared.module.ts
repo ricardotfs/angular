@@ -8,15 +8,15 @@ import { ModuleWithProviders } from "@angular/core/src/metadata/ng_module";
 import { RestaurantsService } from "app/restaurants/restaurants.service";
 import { ShoppingCartService } from "app/restaurant-detail/shopping-cart/shopping-cart.services";
 import { OrderService } from "app/order/order-services";
-
-
+import { SnackbarComponent } from "app/shared/messages/snackbar/snackbar.component";
+import { NotificationServices } from "app/shared/messages/notification.services";
 
 @NgModule({
-    declarations:[InputComponent,RadioComponent,RatingComponent],
+    declarations:[InputComponent,RadioComponent,RatingComponent, SnackbarComponent],
     imports:[CommonModule,FormsModule,ReactiveFormsModule],
     exports:[
             InputComponent,RadioComponent,RatingComponent,
-            CommonModule,FormsModule,ReactiveFormsModule
+            CommonModule,FormsModule,ReactiveFormsModule,SnackbarComponent
     ]
 })
 export class SharedModule{
@@ -24,7 +24,7 @@ export class SharedModule{
     static forRoot():ModuleWithProviders{
         return{
             ngModule:SharedModule,
-            providers:[ShoppingCartService,RestaurantsService,OrderService]
+            providers:[ShoppingCartService,RestaurantsService,OrderService,NotificationServices]
             
         }
     }
