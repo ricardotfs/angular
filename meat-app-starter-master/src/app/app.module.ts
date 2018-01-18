@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule,PreloadAllModules } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -41,7 +41,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
     BrowserModule,
     BrowserAnimationsModule,
     SharedModule.forRoot(),
-    HttpModule,
+    HttpClientModule,
     //RouterModule.forRoot(ROUTES,{preloadingStrategy:PreloadAllModules}),
     RouterModule.forRoot(ROUTES),
   ],

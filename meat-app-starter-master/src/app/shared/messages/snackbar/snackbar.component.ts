@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { state, style, transition, trigger, animate } from '@angular/animations';
 import { NotificationServices } from 'app/shared/messages/notification.services';
-import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/observable/timer';
 import 'rxjs/add/operator/do';
+import { Observable } from 'rxjs/Observable';
+import { Component, trigger, state, style, transition, animate, OnInit } from '@angular/core';
 
 @Component({
   selector: 'mt-snackbar',
