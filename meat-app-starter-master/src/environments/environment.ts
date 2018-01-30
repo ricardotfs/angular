@@ -8,3 +8,8 @@ export const environment = {
   api:'http://localhost:3000'
 
 };
+export const environmentAux = {
+  production: false,
+  api:'http://localhost:56390/api'
+
+};

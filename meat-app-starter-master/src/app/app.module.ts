@@ -20,6 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router } from '@angular/router/src/router';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { LoginComponent } from 'app/security/login/login.component';
+
 
 
 @NgModule({
@@ -36,6 +38,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
     ReviewsComponent,
     OrderSummaryComponent,
     NotFoundComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
