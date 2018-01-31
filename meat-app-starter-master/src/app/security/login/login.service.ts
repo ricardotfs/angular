@@ -5,13 +5,18 @@ import {MEAT_API_AUX} from "../../app.api"
 import { User } from "app/security/login/user.model";
 import 'rxjs/add/operator/do'
 import { HttpHeaders } from "@angular/common/http";
+import { Router } from "@angular/router";
 
 @Injectable()
 export class LoginService{
     
     user:User;
 
-    constructor(private http:HttpClient){
+    handleLogin(path?:string) {
+        this.router.navigate(['/login',path]);   
+    }
+
+    constructor(private http:HttpClient,private router:Router){
 
     }
 
