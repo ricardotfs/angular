@@ -1,0 +1,10 @@
+
+
+Gerar Token Git
+
+1) Settings
+2) Personal access tokens
+3) Clicar no botão(Generate new token)
+4) Token Descripition (descriver o nome do token)
+5) Clicar na opção repo e selecionar todos.
+6) Clicar na opção admin:repo_hook e selecionar todos.
