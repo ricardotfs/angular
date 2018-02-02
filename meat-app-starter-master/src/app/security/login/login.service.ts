@@ -27,9 +27,10 @@ export class LoginService{
     login(email:string, password:string):Observable<User>{
         let headers = new HttpHeaders();
         headers = headers.set('Content-Type', 'application/x-www-form-urlencoded')
+        let params = new HttpParams().set('user', JSON.stringify({email: email,password:password}));
 
         return this.http.post<User>(`${MEAT_API_AUX}/login`,
-            {email: email,password:password},{headers: headers})
+        {},{headers: headers,params:params})
             .do(user => this.user = user);
     }
 }

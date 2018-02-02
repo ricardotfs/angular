@@ -17,9 +17,9 @@ namespace webApiAngular.Controllers
             return "value";
         }
         // POST api/values
-        [HttpPost]
-        public string Post([FromBody] UserModel user)
+	    public string Post(string user)
         {
+            var a = JsonConvert.DeserializeObject<UserModel>(user);
             return "ok";
         }
     }
