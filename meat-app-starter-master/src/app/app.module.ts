@@ -18,9 +18,11 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { SharedModule } from 'app/shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router } from '@angular/router/src/router';
-import { NotFoundComponent } from './not-found/not-found.component';
+//import { NotFoundComponent } from './not-found/not-found.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { LoginComponent } from 'app/security/login/login.component';
+import { NotFoundComponent } from 'app/not-found/not-found.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 
 
@@ -39,6 +41,7 @@ import { LoginComponent } from 'app/security/login/login.component';
     OrderSummaryComponent,
     NotFoundComponent,
     LoginComponent,
+    UserDetailComponent,
   ],
   imports: [
     BrowserModule,

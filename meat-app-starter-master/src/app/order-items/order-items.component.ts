@@ -18,8 +18,8 @@ export class OrderItemsComponent implements OnInit {
   ngOnInit() {
   }
 
-  total(){
-    return this.items.value();  
+  total():number{
+    return 1//this.items.value();  
   }
   emitIncreaseQty(item:CartItem){
     this.increaseQty.emit(item);
