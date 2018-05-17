@@ -1,0 +1,16 @@
+C:\Users\SAG\source\repos\StoreOfBuild\StoreOfBuild.Data\bin\Debug\netcoreapp2.0\StoreOfBuild.Data.deps.json
+C:\Users\SAG\source\repos\StoreOfBuild\StoreOfBuild.Data\bin\Debug\netcoreapp2.0\StoreOfBuild.Data.dll
+C:\Users\SAG\source\repos\StoreOfBuild\StoreOfBuild.Data\bin\Debug\netcoreapp2.0\StoreOfBuild.Data.pdb
+C:\Users\SAG\source\repos\StoreOfBuild\StoreOfBuild.Data\bin\Debug\netcoreapp2.0\StoreOfBuild.Domain.dll
+C:\Users\SAG\source\repos\StoreOfBuild\StoreOfBuild.Data\bin\Debug\netcoreapp2.0\StoreOfBuild.Domain.pdb
+C:\Users\SAG\source\repos\StoreOfBuild\StoreOfBuild.Data\obj\Debug\netcoreapp2.0\StoreOfBuild.Data.csproj.CoreCompileInputs.cache
+C:\Users\SAG\source\repos\StoreOfBuild\StoreOfBuild.Data\obj\Debug\netcoreapp2.0\StoreOfBuild.Data.AssemblyInfoInputs.cache
+C:\Users\SAG\source\repos\StoreOfBuild\StoreOfBuild.Data\obj\Debug\netcoreapp2.0\StoreOfBuild.Data.AssemblyInfo.cs
+C:\Users\SAG\source\repos\StoreOfBuild\StoreOfBuild.Data\obj\Debug\netcoreapp2.0\StoreOfBuild.Data.csproj.CopyComplete
+C:\Users\SAG\source\repos\StoreOfBuild\StoreOfBuild.Data\obj\Debug\netcoreapp2.0\StoreOfBuild.Data.dll
+C:\Users\SAG\source\repos\StoreOfBuild\StoreOfBuild.Data\obj\Debug\netcoreapp2.0\StoreOfBuild.Data.pdb
+C:\Users\SAG\source\repos\StoreOfBuild\StoreOfBuild.Data\obj\Debug\netcoreapp2.0\StoreOfBuild.Data.csprojResolveAssemblyReference.cache
+C:\Users\SAG\source\repos\StoreOfBuild\StoreOfBuild.Data\bin\Debug\netcoreapp2.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\SAG\source\repos\StoreOfBuild\StoreOfBuild.Data\bin\Debug\netcoreapp2.0\Microsoft.Extensions.Identity.Stores.xml
+C:\Users\SAG\source\repos\StoreOfBuild\StoreOfBuild.Data\bin\Debug\netcoreapp2.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\SAG\source\repos\StoreOfBuild\StoreOfBuild.Data\bin\Debug\netcoreapp2.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.xml

@@ -1,0 +1,11 @@
+C:\Users\SAG\source\repos\StoreOfBuild\StoreOfBuild.Domain\bin\Debug\netcoreapp2.0\StoreOfBuild.Domain.deps.json
+C:\Users\SAG\source\repos\StoreOfBuild\StoreOfBuild.Domain\bin\Debug\netcoreapp2.0\StoreOfBuild.Domain.dll
+C:\Users\SAG\source\repos\StoreOfBuild\StoreOfBuild.Domain\bin\Debug\netcoreapp2.0\StoreOfBuild.Domain.pdb
+C:\Users\SAG\source\repos\StoreOfBuild\StoreOfBuild.Domain\obj\Debug\netcoreapp2.0\StoreOfBuild.Domain.csproj.CoreCompileInputs.cache
+C:\Users\SAG\source\repos\StoreOfBuild\StoreOfBuild.Domain\obj\Debug\netcoreapp2.0\StoreOfBuild.Domain.AssemblyInfoInputs.cache
+C:\Users\SAG\source\repos\StoreOfBuild\StoreOfBuild.Domain\obj\Debug\netcoreapp2.0\StoreOfBuild.Domain.AssemblyInfo.cs
+C:\Users\SAG\source\repos\StoreOfBuild\StoreOfBuild.Domain\obj\Debug\netcoreapp2.0\StoreOfBuild.Domain.dll
+C:\Users\SAG\source\repos\StoreOfBuild\StoreOfBuild.Domain\obj\Debug\netcoreapp2.0\StoreOfBuild.Domain.pdb
+C:\Users\SAG\source\repos\StoreOfBuild\StoreOfBuild.Domain\bin\Debug\netcoreapp2.0\StoreOfBuild.Domain.runtimeconfig.json
+C:\Users\SAG\source\repos\StoreOfBuild\StoreOfBuild.Domain\bin\Debug\netcoreapp2.0\StoreOfBuild.Domain.runtimeconfig.dev.json
+C:\Users\SAG\source\repos\StoreOfBuild\StoreOfBuild.Domain\obj\Debug\netcoreapp2.0\StoreOfBuild.Domain.csprojResolveAssemblyReference.cache

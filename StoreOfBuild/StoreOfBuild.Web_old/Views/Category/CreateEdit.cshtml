@@ -1,0 +1,33 @@
+﻿@model StoreOfBuild.Web.Models.CategoryViewModel
+
+@{
+    ViewData["Title"] = "CreateEdit";
+}
+<h2>Index</h2>
+<h4>CategoryDto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateEdit">
+            <div class="form-group">
+                <input asp-for="Id" id="id" type="hidden" class="form-control" />
+
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" id="name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="button" value="Create" class="btn btn-primary" onclick="create()" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-primary">Back to List</a>
+</div>
+
+@section Scripts {
+    <script src="~/js/category.js"></script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
