@@ -1,0 +1,17 @@
+C:\Users\SAG\source\repos\crm.Teste\bin\Debug\netcoreapp2.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\SAG\source\repos\crm.Teste\bin\Debug\netcoreapp2.0\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\SAG\source\repos\crm.Teste\bin\Debug\netcoreapp2.0\xunit.runner.utility.netcoreapp10.dll
+C:\Users\SAG\source\repos\crm.Teste\bin\Debug\netcoreapp2.0\crm.Teste.deps.json
+C:\Users\SAG\source\repos\crm.Teste\bin\Debug\netcoreapp2.0\crm.Teste.runtimeconfig.json
+C:\Users\SAG\source\repos\crm.Teste\bin\Debug\netcoreapp2.0\crm.Teste.runtimeconfig.dev.json
+C:\Users\SAG\source\repos\crm.Teste\bin\Debug\netcoreapp2.0\crm.Teste.dll
+C:\Users\SAG\source\repos\crm.Teste\bin\Debug\netcoreapp2.0\crm.Teste.pdb
+C:\Users\SAG\source\repos\crm.Teste\obj\Debug\netcoreapp2.0\crm.Teste.csprojResolveAssemblyReference.cache
+C:\Users\SAG\source\repos\crm.Teste\obj\Debug\netcoreapp2.0\crm.Teste.csproj.CoreCompileInputs.cache
+C:\Users\SAG\source\repos\crm.Teste\obj\Debug\netcoreapp2.0\crm.Teste.AssemblyInfoInputs.cache
+C:\Users\SAG\source\repos\crm.Teste\obj\Debug\netcoreapp2.0\crm.Teste.AssemblyInfo.cs
+C:\Users\SAG\source\repos\crm.Teste\obj\Debug\netcoreapp2.0\crm.Teste.dll
+C:\Users\SAG\source\repos\crm.Teste\obj\Debug\netcoreapp2.0\crm.Teste.pdb
+C:\Users\SAG\source\repos\crm.Teste\bin\Debug\netcoreapp2.0\crm.Dominio.dll
+C:\Users\SAG\source\repos\crm.Teste\bin\Debug\netcoreapp2.0\crm.Dominio.pdb
+C:\Users\SAG\source\repos\crm.Teste\obj\Debug\netcoreapp2.0\crm.Teste.csproj.CopyComplete
