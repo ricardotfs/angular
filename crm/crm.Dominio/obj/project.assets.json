@@ -670,11 +670,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\SAG\\source\\repos\\crm.Dominio\\crm.Dominio.csproj",
+      "projectUniqueName": "D:\\@Git\\angular\\crm\\crm.Dominio\\crm.Dominio.csproj",
       "projectName": "crm.Dominio",
-      "projectPath": "C:\\Users\\SAG\\source\\repos\\crm.Dominio\\crm.Dominio.csproj",
+      "projectPath": "D:\\@Git\\angular\\crm\\crm.Dominio\\crm.Dominio.csproj",
       "packagesPath": "C:\\Users\\SAG\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\SAG\\source\\repos\\crm.Dominio\\obj\\",
+      "outputPath": "D:\\@Git\\angular\\crm\\crm.Dominio\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

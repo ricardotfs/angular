@@ -18,7 +18,7 @@ namespace crm.Dominio.Entidades
             TelefoneComercial = telefoneComercial;
             TelefoneCelular = telefoneCelular;
             TelefoneResidencial = telefoneResidencial;
-            TelefoneAdcional = telefoneAdcional;
+            TelefoneAdicional = telefoneAdcional;
             Email = email;
             Email2 = email2;
             Rg = rg;
@@ -36,7 +36,7 @@ namespace crm.Dominio.Entidades
         public TELEFONE TelefoneComercial { get; private set; }
         public TELEFONE TelefoneCelular { get; private set; }
         public TELEFONE TelefoneResidencial { get; private set; }
-        public TELEFONE TelefoneAdcional { get; private set; }
+        public TELEFONE TelefoneAdicional { get; private set; }
         public EMAIL Email { get; private set; }
         public EMAIL Email2 { get; private set; }
         public string Rg { get; private set; }

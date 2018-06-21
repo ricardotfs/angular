@@ -5735,11 +5735,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\SAG\\source\\repos\\crm.Teste\\crm.Teste.csproj",
+      "projectUniqueName": "D:\\@Git\\angular\\crm\\crm.Teste\\crm.Teste.csproj",
       "projectName": "crm.Teste",
-      "projectPath": "C:\\Users\\SAG\\source\\repos\\crm.Teste\\crm.Teste.csproj",
+      "projectPath": "D:\\@Git\\angular\\crm\\crm.Teste\\crm.Teste.csproj",
       "packagesPath": "C:\\Users\\SAG\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\SAG\\source\\repos\\crm.Teste\\obj\\",
+      "outputPath": "D:\\@Git\\angular\\crm\\crm.Teste\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5758,8 +5758,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\SAG\\source\\repos\\crm.Dominio\\crm.Dominio.csproj": {
-              "projectPath": "C:\\Users\\SAG\\source\\repos\\crm.Dominio\\crm.Dominio.csproj"
+            "D:\\@Git\\angular\\crm\\crm.Dominio\\crm.Dominio.csproj": {
+              "projectPath": "D:\\@Git\\angular\\crm\\crm.Dominio\\crm.Dominio.csproj"
             }
           }
         }
