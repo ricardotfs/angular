@@ -1,3 +1,7 @@
+using crm.Dominio.Dto;
+using crm.Dominio.Entidades;
+using crm.Dominio.Handlres;
+using crm.Dominio.Repository;
 using crm.Dominio.ValueObjects;
 using System;
 using Xunit;
@@ -9,13 +13,29 @@ namespace crm.Teste
         [Fact]
         public void Test1()
         {
-            var cpf = new TELEFONE("1198310796",ETipoTelefone.Celular);
+            var repositorio = new ContatoRepositorio();
+            var dto = new ContatoDto();
+            dto.Nome = "Ricardo";
+            dto.Cpf = "234234ewr";
+            dto.Email = "ricardo@gvp.com";
 
-            foreach (var item in cpf.Erros)
+            var handler = new ContatoHandlers(repositorio);
+            var result = handler.Create(dto);
+
+            Assert.True(result.Erros.Count == 0);
+        }
+
+        class ContatoRepositorio : IContatoRepositorio
+        {
+            public bool ExisteCpf(string cpf)
             {
-                Console.WriteLine(item);
+                return false;
             }
-            Assert.True(cpf.Validar());
+
+            public bool ExisteEmail(string email)
+            {
+                return false;
+            }
         }
     }
 }

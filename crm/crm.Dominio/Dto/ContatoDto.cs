@@ -4,10 +4,11 @@ using System.Text;
 
 namespace crm.Dominio.Dto
 {
-    public class ContatoDto: ICommand
+    public class ContatoDto : ICommand
     {
         public int Id { get; set; }
         public string Nome { get; set; }
+        public string SobreNome { get; set; }
         public ESexo Sexo { get; set; }
         public int Idade { get; set; }
         public DateTime DataNascimento { get; set; }
@@ -30,7 +31,7 @@ namespace crm.Dominio.Dto
         public string Residencial { get; set; }
         public string EstadoResidencial { get; set; }
         public string PaisResidencial { get; set; }
-        public ICollection<string> Erros { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public ICollection<string> Erros { get; set; } = new List<string>();
 
         public bool Validar()
         {

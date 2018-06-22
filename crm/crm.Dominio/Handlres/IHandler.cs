@@ -5,8 +5,8 @@ using System.Text;
 
 namespace crm.Dominio.Handlres
 {
-    public interface IHandler<T> where T:ICommand
+    public interface IHandler<T> where T : ICommand
     {
-        ICommand Create(T obj);
+        ICommandResult Create(T obj);
     }
 }
