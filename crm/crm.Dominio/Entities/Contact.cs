@@ -27,6 +27,8 @@ namespace crm.Dominio.Entidades
             EnderecoPrincipal = enderecoPrincipal;
             EnderecoComercial = enderecoComercial;
             RedesSociais = redesSociais;
+            AddErros(nome, TelefoneComercial, telefoneCelular, TelefoneResidencial,
+                TelefoneAdicional, email, Email2, cpf, banco);
         }
 
         public Nome Nome { get; private set; }

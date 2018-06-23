@@ -41,7 +41,10 @@ namespace crm.Dominio.Handlres
                                         telComercial, telCelular, telResidencial, telAdcional,
                                         email1, email2, dto.Rg, cpf, null, null, null, null);
 
-            if(!cpf.Validar())
+            if (!contato.Validar())
+                return new CommandResult(false, "erro", contato.Erros);
+
+            if (!cpf.Validar())
                 return new CommandResult(false, "Erros na entidade", cpf.Erros);
 
             return new CommandResult(true, "Contato criado com sucesso!");
