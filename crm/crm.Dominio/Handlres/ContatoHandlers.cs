@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using crm.Dominio.Command;
 using crm.Dominio.Dto;
 using crm.Dominio.Entidades;
 using crm.Dominio.Repository;

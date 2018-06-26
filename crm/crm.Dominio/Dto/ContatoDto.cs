@@ -1,4 +1,5 @@
-﻿using System;
+﻿using crm.Dominio.Command;
+using System;
 using System.Collections.Generic;
 using System.Text;
 

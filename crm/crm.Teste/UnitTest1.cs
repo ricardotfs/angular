@@ -28,7 +28,7 @@ namespace crm.Teste
                 dto.Email = "ricardo@gvp.com";
                 dto.Email2 = "maria@gvp.com";
 
-                var handler = new ContatoHandlers(_repositorio);
+                IHandler<ContatoDto> handler = new ContatoHandlers(_repositorio);
                 var result = handler.Create(dto);
 
                 Assert.True(result.Erros.Count == 0);
@@ -51,7 +51,7 @@ namespace crm.Teste
                 dto.Email = "ricardo@gvp.com";
                 dto.Email2 = "maria@gvp.com";
 
-                var handler = new ContatoHandlers(_repositorio);
+                IHandler<ContatoDto> handler = new ContatoHandlers(_repositorio);
                 var result = handler.Update(dto);
 
                 Assert.True(result.Erros.Count == 0);
