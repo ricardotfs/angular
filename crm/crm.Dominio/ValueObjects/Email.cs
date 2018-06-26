@@ -7,9 +7,10 @@ namespace crm.Dominio.ValueObjects
 {
     public class EMAIL : Base
     {
-        public EMAIL(string email)
+        public EMAIL(string email,ETipoEmail tipoEmail)
         {
-            if (!EmailValido(email)) { Erros.Add("EMAIL.Email inválido."); }
+            if (string.IsNullOrWhiteSpace(email) || !EmailValido(email)) { Erros.Add($"EMAIL.Email {tipoEmail.ToString()} inválido."); }
+
             Email = email;
         }
         public string Email { get; private set; }

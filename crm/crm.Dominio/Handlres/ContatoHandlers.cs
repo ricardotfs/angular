@@ -18,9 +18,6 @@ namespace crm.Dominio.Handlres
         }
         public ICommandResult Create(ContatoDto dto)
         {
-            if (!dto.Validar())
-                return new CommandResult(false, "Erros no dto", dto.Erros);
-
             if (_contatoRepositorio.ExisteCpf(dto.Cpf))
                 return new CommandResult(false, "O Cpf ja está cadastrado");
    
@@ -28,17 +25,12 @@ namespace crm.Dominio.Handlres
                 return new CommandResult(false, "O Email ja está cadastradoo");
 
             var nome = new Nome(dto.Nome, dto.SobreNome);
-            var telComercial = new TELEFONE(dto.TelefoneComercial, ETipoTelefone.Fixo);
-            var telCelular = new TELEFONE(dto.TelefoneComercial, ETipoTelefone.Celular);
-            var telResidencial = new TELEFONE(dto.TelefoneComercial, ETipoTelefone.Fixo);
-            var tipoTelAdic = dto.TelefoneComercial != null && dto.TelefoneComercial.Length > 10 ? ETipoTelefone.Fixo : ETipoTelefone.Celular;
-            var telAdcional = new TELEFONE(dto.TelefoneComercial, tipoTelAdic);
-            var email1 = new EMAIL(dto.Email);
-            var email2 = new EMAIL(dto.Email2 ?? string.Empty);
+            var email1 = new EMAIL(dto.Email,ETipoEmail.Principal);
+            var email2 = new EMAIL(dto.Email2,ETipoEmail.Secundario);
             var cpf = new CPF(dto.Cpf);
 
-            var contato = new Contato(nome, dto.Sexo, dto.Idade, dto.DataNascimento,
-                                        telComercial, telCelular, telResidencial, telAdcional,
+            var contato = new Contato(nome, dto.Sexo, dto.Idade, dto.DataNascimento, dto.TelefoneComercial,
+                                        dto.TelefoneCelular, dto.TelefoneResidencial, dto.TelefoneAdicional,
                                         email1, email2, dto.Rg, cpf, null, null, null, null);
 
             if (!contato.Validar())
@@ -47,7 +39,31 @@ namespace crm.Dominio.Handlres
             if (!cpf.Validar())
                 return new CommandResult(false, "Erros na entidade", cpf.Erros);
 
-            return new CommandResult(true, "Contato criado com sucesso!");
+            var id = _contatoRepositorio.Create(contato);
+
+            return new CommandResult(true, "Contato criado com sucesso!", id);
+        }
+
+        public ICommandResult Update(ContatoDto dto)
+        {
+            if (!_contatoRepositorio.ExisteContato(dto.Id))
+                return new CommandResult(false, "O Contato não existe");
+
+            var nome = new Nome(dto.Nome, dto.SobreNome);
+            var email1 = new EMAIL(dto.Email, ETipoEmail.Principal);
+            var email2 = new EMAIL(dto.Email2, ETipoEmail.Secundario);
+            var cpf = new CPF(dto.Cpf);
+
+            var contato = new Contato(nome, dto.Sexo, dto.Idade, dto.DataNascimento, dto.TelefoneComercial,
+                                        dto.TelefoneCelular, dto.TelefoneResidencial, dto.TelefoneAdicional,
+                                        email1, email2, dto.Rg, cpf, null, null, null, null);
+
+            if (!contato.Validar())
+                return new CommandResult(false, "erro", contato.Erros);
+
+            _contatoRepositorio.Update(contato);
+
+            return new CommandResult(true, "Contato alterado com sucesso!");
         }
     }
 }

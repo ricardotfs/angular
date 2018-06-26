@@ -31,13 +31,5 @@ namespace crm.Dominio.Dto
         public string Residencial { get; set; }
         public string EstadoResidencial { get; set; }
         public string PaisResidencial { get; set; }
-        public ICollection<string> Erros { get; set; } = new List<string>();
-
-        public bool Validar()
-        {
-            if (string.IsNullOrWhiteSpace(Nome)) { Erros.Add("Nome campo obrigatório."); }
-
-            return Erros.Count == 0 ? true : false;
-        }
     }
 }

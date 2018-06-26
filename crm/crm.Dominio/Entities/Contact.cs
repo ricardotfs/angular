@@ -3,11 +3,11 @@ using System;
 
 namespace crm.Dominio.Entidades
 {
-    public class Contato: Base
+    public class Contato : Base
     {
         public Contato(Nome nome, ESexo sexo, int idade, DateTime dataNascimento,
-            TELEFONE telefoneComercial, TELEFONE telefoneCelular, TELEFONE telefoneResidencial,
-            TELEFONE telefoneAdcional, EMAIL email, EMAIL email2, string rg, CPF cpf,
+            string telefoneComercial, string telefoneCelular, string telefoneResidencial,
+            string telefoneAdcional, EMAIL email, EMAIL email2, string rg, CPF cpf,
             Banco banco, Endereco enderecoPrincipal, Endereco enderecoComercial,
             RedesSociais redesSociais)
         {
@@ -27,18 +27,18 @@ namespace crm.Dominio.Entidades
             EnderecoPrincipal = enderecoPrincipal;
             EnderecoComercial = enderecoComercial;
             RedesSociais = redesSociais;
-            AddErros(nome, TelefoneComercial, telefoneCelular, TelefoneResidencial,
-                TelefoneAdicional, email, Email2, cpf, banco);
+
+            AddErros(nome, email, Email2, cpf, banco);
         }
 
         public Nome Nome { get; private set; }
         public ESexo Sexo { get; private set; }
         public int Idade { get; private set; }
         public DateTime DataNascimento { get; private set; }
-        public TELEFONE TelefoneComercial { get; private set; }
-        public TELEFONE TelefoneCelular { get; private set; }
-        public TELEFONE TelefoneResidencial { get; private set; }
-        public TELEFONE TelefoneAdicional { get; private set; }
+        public string TelefoneComercial { get; private set; }
+        public string TelefoneCelular { get; private set; }
+        public string TelefoneResidencial { get; private set; }
+        public string TelefoneAdicional { get; private set; }
         public EMAIL Email { get; private set; }
         public EMAIL Email2 { get; private set; }
         public string Rg { get; private set; }
