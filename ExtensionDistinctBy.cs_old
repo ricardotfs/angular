@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var lista = new List<People>
+            {
+                new People { Id = 1, Nome = "Nome1", Data = new DateTime(2018, 6, 26, 10, 10, 11)},
+                new People { Id = 1, Nome = "Nome2", Data = new DateTime(2018, 6, 26, 10, 11, 12)},
+                new People { Id = 1, Nome = "Nome2", Data = new DateTime(2018, 6, 26, 10, 11, 13)},
+                new People { Id = 1, Nome = "Nome4", Data = new DateTime(2018, 6, 26, 10, 10, 14)},
+            };
+            
+            var filtro = lista.DistinctBy(p => new { p.Nome,Data = (new DateTime(p.Data.Year, p.Data.Month, p.Data.Day, p.Data.Hour, p.Data.Minute, 0)) }).ToList();
+            filtro = filtro.DistinctBy(p => p.Nome).ToList();
+           
+
+
+        }
+
+       
+    }
+    class People
+    {
+        public int Id { get; set; }
+        public string Nome { get; set; }
+        public DateTime Data { get; set; }
+    }
+    public static class ExtensionDistinctBy
+    {
+        public static IEnumerable<TSource> DistinctBy<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
+        {
+            HashSet<TKey> seenKeys = new HashSet<TKey>();
+            foreach (TSource element in source)
+            {
+                if (seenKeys.Add(keySelector(element)))
+                {
+                    yield return element;
+                }
+            }
+        }
+    }
+}
