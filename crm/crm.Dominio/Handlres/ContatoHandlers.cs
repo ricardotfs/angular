@@ -29,10 +29,11 @@ namespace crm.Dominio.Handlres
             var email1 = new EMAIL(dto.Email,ETipoEmail.Principal);
             var email2 = new EMAIL(dto.Email2,ETipoEmail.Secundario);
             var cpf = new CPF(dto.Cpf);
+            var redesSociais = new RedesSociais(dto.Twitter, dto.Skype, dto.Youtube, dto.FaceBook, dto.GooglePlus, dto.Linkedin, dto.Instagram);
 
             var contato = new Contato(nome, dto.Sexo, dto.Idade, dto.DataNascimento, dto.TelefoneComercial,
                                         dto.TelefoneCelular, dto.TelefoneResidencial, dto.TelefoneAdicional,
-                                        email1, email2, dto.Rg, cpf, null, null, null, null);
+                                        email1, email2, dto.Rg, cpf, null, null, null, redesSociais);
 
             if (!contato.Validar())
                 return new CommandResult(false, "erro", contato.Erros);

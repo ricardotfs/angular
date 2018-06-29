@@ -32,5 +32,12 @@ namespace crm.Dominio.Dto
         public string Residencial { get; set; }
         public string EstadoResidencial { get; set; }
         public string PaisResidencial { get; set; }
+        public string Twitter { get; set; }
+        public string Skype { get; set; }
+        public string Youtube { get; set; }
+        public string FaceBook { get; set; }
+        public string GooglePlus { get; set; }
+        public string Linkedin { get; set; }
+        public string Instagram { get; set; }
     }
 }
