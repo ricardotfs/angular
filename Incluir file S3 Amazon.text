@@ -1,2 +1,178 @@
-# angular
-asdas
+        private readonly string _bucketName     = ConfigurationManager.AppSettings["S3BucketMaster"];
+        private readonly string _acessKey       = ConfigurationManager.AppSettings["S3AccessKey"];
+        private readonly string _secretKey      = ConfigurationManager.AppSettings["S3SecretKey"];
+        private readonly string _s3Host         = ConfigurationManager.AppSettings["S3Host"];
+        private readonly string _s3Folder       = ConfigurationManager.AppSettings["S3Folder"];
+
+        public byte[] DownloadAnexoS3(EmailAnexo emailAnexo)
+        {
+            var _file = new MemoryStream();
+
+            using (var s3Client = new AmazonS3Client(_acessKey, _secretKey, RegionEndpoint.USWest2))
+            {
+                try
+                {
+                    var _pathSource = emailAnexo.Url.Replace($"{_s3Host}/{_bucketName}/", "");
+
+                    var req = s3Client.GetObject(new GetObjectRequest
+                    {
+                        BucketName  = _bucketName,
+                        Key         = _pathSource
+                    });
+
+                    var stream2 = new BufferedStream(req.ResponseStream);
+                    var buffer = new byte[0x2000];
+                    var count = 0;
+
+                    while ((count = stream2.Read(buffer, 0, buffer.Length)) > 0)
+                        _file.Write(buffer, 0, count);
+
+                    return _file.ToArray();
+                }
+                catch (AmazonS3Exception ex)
+                {
+                    throw new Exception($"Arquivo {emailAnexo.Nome} não está disponível para download no momento,<br> por gentileza aguarde um momento.");
+                }
+            }
+        }
+
+        public List<EmailAnexo> IncluirAnexoS3(List<EmailAnexo> anexos, int idEmail)
+        {
+            anexos.ForEach(anexo =>
+            {
+                var _pathFolder = !String.IsNullOrWhiteSpace(_s3Folder) ? $"{_s3Folder}/" : String.Empty;
+
+                var _path = $"{_pathFolder}" +
+                            $"{anexo.Idc}/email/" +
+                            $"{DateTime.Now.Year:D4}/" +
+                            $"{DateTime.Now.Month:D2}/" +
+                            $"{DateTime.Now.Day:D2}/" +
+                            $"{idEmail}/" +
+                            $"{anexo.Nome}";
+
+                if (ExisteAnexoS3(_path))
+                    throw new Exception($"Arquivo ({anexo.Nome}) já anexado !");
+
+                using (var s3Client = new AmazonS3Client(_acessKey, _secretKey, RegionEndpoint.USWest2))
+                {
+                    try
+                    {
+                        var request = new PutObjectRequest
+                        {
+                            CannedACL       = S3CannedACL.Private,
+                            BucketName      = _bucketName,
+                            Key             = _path,
+                            InputStream     = new MemoryStream(anexo.Arquivo)
+                        };
+
+                        s3Client.PutObject(request);
+
+                        anexo.Url = $"{_s3Host}/{_bucketName}/{_path}";
+
+                    }
+                    catch (AmazonS3Exception ex)
+                    {
+                        throw new Exception($"Não foi possível anexar o arquivo {anexo.Nome}.");
+                    }
+                }
+            });
+
+            return anexos;
+        }
+
+        public List<EmailAnexo> CopiaAnexoS3(Operador operadorLogado, List<EmailAnexo> anexos, int idEmail)
+        {
+            try
+            {
+                var _pathFolder = !String.IsNullOrWhiteSpace(_s3Folder) ? $"{_s3Folder}/" : String.Empty;
+
+                anexos.ForEach(anexo =>
+                {
+                    var _pathSource         = anexo.Url.Replace($"{_s3Host}/{_bucketName}/", "");
+                    var _pathDestination    = $"{_pathFolder}" + 
+                                              $"{operadorLogado.Cliente.IDC}/email/" +
+                                              $"{DateTime.Now.Year:D4}/" +
+                                              $"{DateTime.Now.Month:D2}/" +
+                                              $"{DateTime.Now.Day:D2}/" +
+                                              $"{idEmail}/" +
+                                              $"{anexo.Nome}";
+
+                    using (var s3Client = new AmazonS3Client(_acessKey, _secretKey, RegionEndpoint.USWest2))
+                    {
+                        /* Copia o Arquivo para Envio no processo do Encaminhar */
+                        CopyObjectRequest request = new CopyObjectRequest()
+                        {
+                            SourceBucket        = _bucketName,
+                            SourceKey           = _pathSource,
+                            DestinationBucket   = _bucketName,
+                            DestinationKey      = _pathDestination
+                        };
+
+                        CopyObjectResponse response = s3Client.CopyObject(request);
+                        
+                    }
+
+                    anexo.Url = $"{_s3Host}/{_bucketName}/{_pathDestination}";
+
+                });
+
+                return anexos;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void ExcluirAnexoS3(List<EmailAnexo> anexos)
+        {
+            try
+            {
+                anexos.ForEach(anexo =>
+                {
+                    var _pathSource = anexo.Url.Replace($"{_s3Host}/{_bucketName}/", "");
+
+                    using (var s3Client = new AmazonS3Client(_acessKey, _secretKey, RegionEndpoint.USWest2))
+                    {
+                        /* Excluir o Arquivo para Descarte do E-mail */
+                        DeleteObjectRequest request = new DeleteObjectRequest()
+                        {
+                            BucketName          = _bucketName,
+                            Key                 = _pathSource
+                        };
+
+                        DeleteObjectResponse response = s3Client.DeleteObject(request);
+
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private bool ExisteAnexoS3(string _fileKey)
+        {
+            try
+            {
+                using (var s3Client = new AmazonS3Client(_acessKey, _secretKey, RegionEndpoint.USWest2))
+                {
+                    var response = s3Client.GetObjectMetadata(new GetObjectMetadataRequest()
+                    {
+                        BucketName  = _bucketName,
+                        Key         = _fileKey
+                    });
+                }
+                    
+                return true;
+            }
+            catch (AmazonS3Exception ex)
+            {
+                if (ex.StatusCode == System.Net.HttpStatusCode.NotFound)
+                    return false;
+
+                throw;
+            }
+        }
