@@ -1,0 +1,17 @@
+        private static string EmailText(int truncatedRowsCount, int newRowsCount)
+        {
+            string projectPath = Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory()));
+            string realPath = Path.GetDirectoryName(projectPath);
+
+            string htmlPath = Path.Combine(realPath, @"TemplateHtml\EmailTemplate.html");
+            string fReader = File.ReadAllText(htmlPath);
+
+            string htmlText = fReader.Replace("#TRUNCATED_ROWS#", truncatedRowsCount.ToString());
+            htmlText = htmlText.Replace("#TOTAL_NEW_ROWS#", newRowsCount.ToString());
+
+            int diffence = (newRowsCount - truncatedRowsCount);
+
+            htmlText = htmlText.Replace("#DIFERENCE_OF_RESULTS#", diffence.ToString());
+
+            return htmlText;
+        }
