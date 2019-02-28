@@ -1,0 +1,81 @@
+cs
+cls
+git --version
+cs
+cls
+git --version
+mongod status
+mongod --status
+mongod
+clear
+node -v
+npm -v
+d:
+cd\
+cd D:\@DEV_Robson\React+Redux
+code .
+git clone https://github.com/cod3rcursos/curso-react-redux.git
+cd curso-react-redux\
+dir
+cd my-money-app\
+cd backend\
+npm -i
+npm i
+npm run dev
+npm run production 
+cd D:\@DEV_Robson\React+Redux\curso-react-redux\my-money-app\frontend
+npm i
+npm run dev
+mongod
+npm i
+npm run dev
+mongod
+cd D:\@DEV_Robson\React+Redux\webpack
+npm init -y
+npm i --save-dev webpack@1.14.0 webapack-dev-server@1.16.2
+npm i 
+cd D:\@DEV_Robson\React+Redux\webpack
+npm run dev
+mongod status
+mongod --status
+mongod
+node -v
+npm -v
+d:
+cd\
+cd D:\@DEV_Robson\React+Redux
+code .
+git clone https://github.com/cod3rcursos/curso-react-redux.git
+cd curso-react-redux\
+dir
+cd my-money-app\
+cd backend\
+npm -i
+npm i
+npm run dev
+npm run production 
+cd D:\@DEV_Robson\React+Redux\curso-react-redux\my-money-app\frontend
+npm i
+npm run dev
+mongod
+npm run dev
+cd D:\@DEV_Robson\React+Redux\webpack
+npm i --save-dev webpack@1.14.0 webapack-dev-server@1.16.2
+npm i 
+cd D:\@DEV_Robson\React+Redux\webpack
+.code
+. code
+code
+mongod
+clear
+cd ..
+cd react
+di
+npm init -y
+npm i
+cls
+npm run dev
+dir
+dir
+cls
+exit
