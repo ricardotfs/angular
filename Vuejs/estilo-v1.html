@@ -1,0 +1,96 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<style> 
+    .caixa{
+        display: flex;
+        justify-content: space-around
+    }
+    .demo{
+        width: 100px;
+        height: 100px;
+        background-color:gray;
+
+
+    }
+    .c1{
+        background-color: green;
+    }
+    .c2{
+        background-color: red;
+    }
+    .girar{
+        transform: rotate(45deg);
+    }
+    
+</style>
+<div id="app">
+    <div class="caixa">
+        <button @click="meuEstilo"></button>
+        <br>
+            <div class="demo" :class="[classCss, 'girar']" ></div>
+            <hr/>
+            
+          
+    </div>
+    <hr>
+    <div class="demo" :class="classCss"></div>
+    <input type="text" v-model="aplicarCSS">
+    <hr>
+
+    <div class="demo" :style="estiloTeste"></div>
+    <input type="text" v-model="estiloTeste">
+
+    <div class="demo" :style="estiloTeste"></div>
+    <button @click="aumetarBarra"></button>
+</div>
+
+<script>    
+    new Vue({
+        el:"#app",
+        data:{
+             estiloTeste : "background-color:red",
+             classCss:'c1',
+             aplicar:'false',
+             aplicarCSS:false,
+             //girar:'girar',
+             contador : 0,
+             estiloTeste :"width:0px"
+        },
+        computed:{
+           
+        },
+        watch:{
+            contador:function (value){
+                this.estiloTeste = `width:${value}px`
+                
+                s
+                setTimeout(()=>{
+                    if(this.contador >= 200)
+                        return;
+                    this.contador++;
+                },100)
+            } ,
+            aplicarCSS :function(value){
+                   if(value == "true") {
+                       this.classCss = "c1"
+                   }
+                   else if(value == "false"){
+                       this.classCss = 'c2'
+                   }
+            }
+        },
+        methods:{
+            aumetarBarra(){
+     
+                    this.contador = this.contador + 1;
+
+         
+            },
+            meuEstilo(){
+                this.aplicarCSS = !this.aplicarCSS;
+                this.classCss = this.aplicarCSS ? 'c1':'c2'
+            }
+        }
+    })
+</script>
+       
