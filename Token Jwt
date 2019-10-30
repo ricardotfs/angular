@@ -1,0 +1,163 @@
+  public class TokenController : Controller
+    {
+        private readonly IConfiguration _configuration;
+
+        public TokenController(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
+        [HttpPost]
+        public IActionResult SolicitarToken([FromBody] Usuario usuario)
+        {
+            DateTime saveNow = DateTime.Now;
+
+            // Get the date and time for the current moment expressed 
+            // as coordinated universal time (UTC).
+
+            DateTime saveUtcNow = DateTime.UtcNow;
+
+            if (usuario.Nome == "Ricardo" && usuario.Senha == "123")
+            {
+                var claims = new[]
+                {
+                    new Claim(ClaimTypes.Name,usuario.Nome),
+                };
+
+                var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["SecurityKey"]));
+
+                var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+                var token = new JwtSecurityToken
+                    (
+                        issuer: "gvp.ideacrm.com.br",
+                        audience: "gvp.ideacrm.com.br",
+                        claims: claims,
+                        //expires: DateTime.Now.AddMinutes(5),
+                        signingCredentials: creds
+                    );
+
+                return Ok(new
+                {
+                    token = new JwtSecurityTokenHandler().WriteToken(token),
+                    Expires = "never expires"
+                });
+            }
+
+            return BadRequest("Credenciais inválidas.");
+        }
+    }
+	
+	public class Startup
+    {
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        public IConfiguration Configuration { get; }
+
+        // This method gets called by the runtime. Use this method to add services to the container.
+        public void ConfigureServices(IServiceCollection services)
+        {
+
+            services.AddControllers();
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = false,
+                        ValidateIssuerSigningKey = true,
+                        ValidIssuer = "gvp.ideacrm.com.br",
+                        ValidAudience = "gvp.ideacrm.com.br",
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["SecurityKey"]))
+                    };
+
+                    options.Events = new JwtBearerEvents
+                    {
+                        OnAuthenticationFailed = context =>
+                        {
+                            Console.WriteLine($"Token inválido.....{context.Exception.Message}");
+                            return Task.CompletedTask;
+                        },
+                        OnTokenValidated = context =>
+                        {
+                            Console.WriteLine($"Token válido.....{context.SecurityToken}");
+                            return Task.CompletedTask;
+                        }
+                    };
+                });
+
+            var reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" };
+            var securityScheme = new OpenApiSecurityScheme { Reference = reference };
+            var requirement = new OpenApiSecurityRequirement { { securityScheme, new string[] { } } };
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "IDEA CRM" });
+                c.AddSecurityDefinition("Bearer",
+                    new OpenApiSecurityScheme
+                    {
+                        In = ParameterLocation.Header,// "header",
+                        Description = "Copie 'Bearer ' + token'",
+                        Name = "Authorization",
+                        Type = SecuritySchemeType.ApiKey
+                    });
+
+                c.AddSecurityRequirement(requirement);
+            });
+
+        }
+		
+		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            app.UseAuthentication();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
+
+            app.UseHttpsRedirection();
+
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+        }
+    }
+	public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        if (env.IsDevelopment())
+        {
+            app.UseDeveloperExceptionPage();
+        }
+        app.UseAuthentication();
+        app.UseSwagger();
+        app.UseSwaggerUI(c =>
+        {
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+        });
+
+        app.UseHttpsRedirection();
+
+        app.UseRouting();
+
+        app.UseAuthorization();
+
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllers();
+        });
+    }
