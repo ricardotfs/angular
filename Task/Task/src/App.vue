@@ -1,20 +1,30 @@
 <template>
     <div id="app">
+        <TaskProgress :progress="progress" />
         <NewTask @addNewTask="addTask" @addClearTask="clearTask" />
-        <GridTask :tasks="tasks" @tastDeleted="deleteTask" />
+        <GridTask :tasks="tasks" @tastDeleted="deleteTask" @taskStateChanged="toggleStateChanged" />
     </div>
 </template>
 
 <script>
     import GridTask from './components/GridTask.vue';
     import NewTask from './components/NewTask.vue';
+    import TaskProgress from './components/TaskProgress.vue';
 
     export default {
         name: 'app',
-        components: { GridTask, NewTask },
+        components: { GridTask, NewTask, TaskProgress },
         data() {
             return {
                 tasks: []
+            }
+        },
+        watch: {
+            tasks: {
+                deep: true,
+                handler(){
+                    localStorage.setItem('tasks', JSON.stringify(this.tasks))
+                }
             }
         },
         methods: {
@@ -30,7 +40,27 @@
             },
             deleteTask(i) {
                 this.tasks.splice(i, 1)
+            },
+            toggleStateChanged(i) {
+                this.tasks[i].pedding = !this.tasks[i].pedding
             }
+        },
+        computed: {
+            progress() {
+                const total = this.tasks.length
+                const done = this.tasks.filter(t => !t.pedding).length
+                return Math.round(done / total * 100) | 0
+            }
+        },
+        created() {
+            const json = localStorage.getItem('tasks')
+            const array = JSON.parse(json)
+            if (Array.isArray(array)) {
+                this.tasks = JSON.parse(json)
+            } else {
+                this.tasks = []
+            }
+
         }
     };
 </script>

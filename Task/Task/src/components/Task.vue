@@ -1,6 +1,6 @@
 <template>
-    <div class="task">
-        <span @click="$emit('tastDeleted')" :class="alterarCor(task)"> x</span>
+    <div :class="taskCor(task)" @click.stop="$emit('taskStateChanged',task)">
+        <span @click.stop="$emit('tastDeleted')" :class="alterarCor(task)"> x</span>
         {{task.name}}
     </div>
 </template>
@@ -12,8 +12,12 @@
         },
         methods: {
             alterarCor(task) {
-                return task.pedding? 'close close-red':'close close-green'
+                return task.pedding ? 'close close-red' : 'close close-green'
+            },
+            taskCor(task) {
+                return task.pedding ? 'task close-red' : 'task close-green'
             }
+
         }
     }
 </script>
@@ -40,11 +44,11 @@
         justify-content: center;
     }
 
-        .close-red {
-            background: red;
-        }
+    .close-red {
+        background: red;
+    }
 
-        .close-green {
-            background: green;
-        }
+    .close-green {
+        background: green;
+    }
 </style>
