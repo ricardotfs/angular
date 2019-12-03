@@ -1,23 +1,24 @@
 <template>
     <div class="escolha"
-        @click="ligado = !ligado"
-        :class="{ligado, desligado: !ligado}">
-        <div v-if="ligado" class="botao"></div>
+         @click="$emit('input',!value)"
+         :class="{value, desligado: !value}">
+        <div v-if="value" class="botao"></div>
         <div v-else class="botao"></div>
     </div>
 </template>
 
 <script>
-export default {
-    data() {
-        return {
-            ligado: false
+    export default {
+        props: {
+            value: {
+                type: Boolean, required: true,
+            }
         }
     }
-}
 </script>
 
 <style scoped>
+
     .escolha {
         position: relative;
         display: flex;

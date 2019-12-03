@@ -1,137 +1,181 @@
 <template>
-	<div id="app">
-		<h1>Registrar Reclamação</h1>
-		<div class="conteudo">
-			<form class="painel">
-				<div class="cabecalho">Formulário</div>
-				<Rotulo nome="E-mail">
-					<input type="text">
-				</Rotulo>
-				<Rotulo nome="Senha">
-					<input type="password">
-				</Rotulo>
-				<Rotulo nome="Idade">
-					<input type="number">
-				</Rotulo>
-				<Rotulo nome="Mensagem">
-					<textarea name="" cols="30" rows="5"></textarea>
-				</Rotulo>
-				<Rotulo nome="Características do Problema">
-					<span class="mr-4"><input type="checkbox" value="reproduzivel"> Reproduzível</span>
-					<span><input type="checkbox" value="intermitente"> Intermitente</span>
-				</Rotulo>
-				<Rotulo nome="Qual produto?">
-					<span class="mr-4"><input type="radio"> Web</span>
-					<span class="mr-4"><input type="radio"> Mobile</span>
-					<span><input type="radio"> Outro</span>
-				</Rotulo>
-				<Rotulo nome="Prioridade">
-					<select name="" id="">
-						<option></option>
-					</select>
-				</Rotulo>
-				<Rotulo nome="Primeira Reclamação?">
-					<Escolha />
-				</Rotulo>
-				<hr>
-				<button>Enviar</button>
-			</form>
-			<div class="painel">
-				<div class="cabecalho">Resultado</div>
-				<Rotulo nome="E-mail">
-					<span>???</span>
-				</Rotulo>
-				<Rotulo nome="Senha">
-					<span>???</span>
-				</Rotulo>
-				<Rotulo nome="Idade">
-					<span>???</span>
-				</Rotulo>
-				<Rotulo nome="Mensagem">
-					<span>???</span>
-				</Rotulo>
-				<Rotulo nome="Marque as Opções">
-					<span>???</span>
-				</Rotulo>
-				<Rotulo nome="Qual produto?">
-					<span>???</span>
-				</Rotulo>
-				<Rotulo nome="Prioridade">
-					<span>???</span>
-				</Rotulo>
-				<Rotulo nome="Primeira Reclamação?">
-					<span>???</span>
-				</Rotulo>
-			</div>
-		</div>
-	</div>
+    <div id="app">
+        <h1>Registrar Reclamação</h1>
+        <div class="conteudo">
+            <form class="painel" v-if="!enviado">
+                <div class="cabecalho">Formulário</div>
+                <Rotulo nome="E-mail">
+                    <input type="text" v-model.lazy.trim="usuario.email">
+                </Rotulo>
+                <Rotulo nome="Senha">
+                    <input type="password" v-model="usuario.senha">
+                </Rotulo>
+                <Rotulo nome="Idade">
+                    <input type="number" v-model.number="usuario.idade">
+                </Rotulo>
+                <Rotulo nome="Mensagem">
+                    <textarea name="" cols="30" rows="5" v-model="usuario.mensagem"></textarea>
+                </Rotulo>
+                <Rotulo nome="Características do Problema">
+                    <span class="mr-4">
+                        <input type="checkbox" v-model="caracteristicas" value="reproduzivel"> Reproduzível
+                    </span>
+                    <span>
+                        <input type="checkbox" v-model="caracteristicas" value="intermitente"> Intermitente
+                    </span>
+                </Rotulo>
+                <Rotulo nome="Qual produto?">
+                    <span class="mr-4"><input type="radio" v-model="produto" value="Web"> Web</span>
+                    <span class="mr-4"><input type="radio" v-model="produto" value="Mobile"> Mobile</span>
+                    <span><input type="radio" v-model="produto" value="Outro"> Outro</span>
+                </Rotulo>
+                <Rotulo nome="Prioridade">
+                    <select name="" id="" v-model="prioridade">
+                        <option v-for="p in prioridades" 
+                                :selected="p.codigo === 3"
+                                :value="p.codigo" 
+                                :key="p.codigo">{{p.codigo}} - {{p.nome}}</option>
+                    </select>
+                </Rotulo>
+                <Rotulo nome="Primeira Reclamação?">
+                    <Escolha  v-model="escolha"/>
+                </Rotulo>
+                <hr>
+                <button @click.prevent="enviar">Enviar</button>
+            </form>
+            <div class="painel" v-else>
+                <div class="cabecalho">Resultado</div>
+                <Rotulo nome="E-mail">
+                    <span>{{usuario.email}}</span>
+                </Rotulo>
+                <Rotulo nome="Senha">
+                    <span>{{usuario.senha}}</span>
+                </Rotulo>
+                <Rotulo nome="Idade">
+                    <span>{{usuario.idade}}</span>
+                </Rotulo>
+                <Rotulo nome="Mensagem">
+                    <span style="white-space:pre;">{{usuario.mensagem}}</span>
+                </Rotulo>
+                <Rotulo nome="Marque as Opções">
+                    <span>
+                        <ul>
+                            <li v-for="c in caracteristicas" :key="c">
+                                {{c}}
+                            </li>
+                        </ul>
+                    </span>
+                </Rotulo>
+                <Rotulo nome="Qual produto?">
+                    <span>{{produto}}</span>
+                </Rotulo>
+                <Rotulo nome="Prioridade">
+                    <span>{{prioridade}} | {{getType}}</span>
+                </Rotulo>
+                <Rotulo nome="Primeira Reclamação?">
+                    <span>{{escolha}}</span>
+                </Rotulo>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
-import Rotulo from './components/Rotulo.vue'
-import Escolha from './components/Escolha.vue'
+    import Rotulo from './components/Rotulo.vue'
+    import Escolha from './components/Escolha.vue'
 
-export default {
-	name: 'app',
-	components: { Rotulo, Escolha }
-}
+    export default {
+        name: 'app',
+        data() {
+            return {
+                produto: 'Web',
+                prioridade:3,
+                prioridades: [
+                    { codigo: 1, nome: 'Baixa' },
+                    { codigo: 2, nome: 'Moderada' },
+                    { codigo: 3, nome: 'Alta' },
+                ],
+                caracteristicas: [],
+                usuario: {
+                    email: '',
+                    senha: '',
+                    idade: 25,
+                    mensagem: '',
+
+                },
+                escolha: true,
+                enviado:false,
+            }
+        },
+        computed: {
+            getType() {
+                return typeof this.prioridade;
+            }
+        },
+        components: { Rotulo, Escolha },
+        methods: {
+            enviar() {
+                this.enviado = true
+            }
+        }
+    }
 </script>
 
 <style>
 
-body {
-	background-color: #ECECEC;
-}
 
-#app {
-	font-family: 'Avenir', Helvetica, Arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-align: center;
-	color: #2c3e50;
+    body {
+        background-color: #ECECEC;
+    }
 
-	display: flex;
-	flex-direction: column;
-}
+    #app {
+        font-family: 'Avenir', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-align: center;
+        color: #2c3e50;
+        display: flex;
+        flex-direction: column;
+    }
 
-.conteudo {
-	display: flex;
-}
+    .conteudo {
+        display: flex;
+    }
 
-.painel {
-	flex: 1;
-	background: #FFF;
-	margin: 0px 10px;
-	padding: 20px;
-	border: 1px solid #AAA;
-	border-radius: 5px;
-}
+    .painel {
+        flex: 1;
+        background: #FFF;
+        margin: 0px 10px;
+        padding: 20px;
+        border: 1px solid #AAA;
+        border-radius: 5px;
+    }
 
-.painel .cabecalho {
-	width: 100%;
-	background-color: #DDD;
-	padding: 10px 0px;
-	border-radius: 5px;
-	font-size: 1.4rem;
-}
+        .painel .cabecalho {
+            width: 100%;
+            background-color: #DDD;
+            padding: 10px 0px;
+            border-radius: 5px;
+            font-size: 1.4rem;
+        }
 
-#app form button {
-	float: right;
-	margin: 10px 0px;
-	padding: 10px 20px;
-	font-size: 1.4rem;
-	border-radius: 5px;
-	color: #FFF;
-	background-color: #2196F3;
-}
+    #app form button {
+        float: right;
+        margin: 10px 0px;
+        padding: 10px 20px;
+        font-size: 1.4rem;
+        border-radius: 5px;
+        color: #FFF;
+        background-color: #2196F3;
+    }
 
-#app h1 {
-	font-weight: 200;
-	margin: 20px;
-	padding: 0;
-}
+    #app h1 {
+        font-weight: 200;
+        margin: 20px;
+        padding: 0;
+    }
 
-.mr-4 {
-	margin-right: 40px;
-}
+    .mr-4 {
+        margin-right: 40px;
+    }
 </style>
