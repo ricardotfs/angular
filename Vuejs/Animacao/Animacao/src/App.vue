@@ -4,8 +4,17 @@
         <b-button variant="primary" v-on:click="show = !show">
             Alternar
         </b-button>
-        <transition name="fade">
-            <p v-show="show">olá</p>
+        <b-select v-model="tipoAnimacao">
+            <option value="fade">Fade</option>
+            <option value="slide">Slide</option>
+        </b-select>
+        <transition :name="tipoAnimacao" mode="out-in">
+            <b-alert variant="info" show v-if="show" key="info">{{mensagem}}</b-alert>
+            <b-alert variant="success" show v-else key="success">{{mensagem}}</b-alert>
+        </transition>
+
+        <transition :name="tipoAnimacao">
+            <b-alert variant="info" show v-show="show">{{mensagem}}</b-alert>
         </transition>
         <transition name="slide" appear>
             <p v-show="show">olá</p>
@@ -24,7 +33,9 @@
     export default {
         data() {
             return {
-                show: true
+                show: true,
+                mensagem: 'Mensagem de usuário',
+                tipoAnimacao: 'fade'
             }
         }
     }
@@ -56,7 +67,7 @@
 
     @keyframes slide-in {
         from {
-            transform: translateY(40px);
+            transform: translateY(80px);
         }
 
         to {
@@ -70,14 +81,15 @@
         }
 
         to {
-            transform: translateY(40px);
+            transform: translateY(80px);
         }
     }
-    
+
     .slide-enter-active {
         animation: slide-in 3s ease;
         transition: opacity 3s;
     }
+
     .slide-leave-active {
         animation: slide-out 3s ease;
         transition: opacity 3s;
