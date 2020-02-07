@@ -1,6 +1,10 @@
 <template>
     <div id="app" class="container-fluid">
         <h1>Animações</h1>
+        <form>
+            <input value="TESTE" required />
+        </form>
+        
         <!--<b-button variant="primary" v-on:click="show = !show">
         Alternar
     </b-button>-->
