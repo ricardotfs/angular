@@ -35,6 +35,11 @@ app.factory('authService',
                 $scope.$apply();
             };
 
+            authServiceFactory.getDepto = function () {
+                return $http.get(serviceBase + 'api/ticket/get').then(function (response) {
+                    return response;
+                })
+            }
             return authServiceFactory;
         }
     ]

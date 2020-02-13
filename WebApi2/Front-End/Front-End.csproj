@@ -73,6 +73,7 @@
     <Content Include="app\controllers\homeController.js" />
     <Content Include="app\controllers\indexController.js" />
     <Content Include="app\controllers\loginController.js" />
+    <Content Include="app\modules\ticket\service\ticketService.js" />
     <Content Include="app\modules\ticket\view\ticket.html" />
     <Content Include="app\modules\ticket\controller\ticketController.js" />
     <Content Include="app\services\authInterceptorService.js" />
@@ -137,7 +138,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\modules\ticket\service\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <PropertyGroup>
@@ -155,7 +155,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50990</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:15901/</IISUrl>
+          <IISUrl>http://localhost:5555/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

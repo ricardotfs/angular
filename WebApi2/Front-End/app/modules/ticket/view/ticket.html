@@ -1,4 +1,22 @@
-﻿<div class="ticket-container">
-    <a class="btn btn-success" ng-click="home()">Ticket</a>
+﻿<div id="content-container">
+    <div id="page-content" style="padding-top: 0;">
+        <div class="col-md-7">
+            <div class="panel-body panel">
+                <div class="col-md-12 mar-btm">
+                    <a class="btn btn-md btn-default" href="#/home"><i class="pli-arrow-left"></i> Voltar para home</a>
+                    <hr />
+                    <select id="dllDepto-gvp" >
+                        <option ng-repeat="depto in dllDepto" value="{{depto.id}}">{{depto.nome}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="ticket-container">
+            <a class="btn btn-success" ng-click="home()">Ticket</a>
+        </div>
+
+    </div>
 </div>
-    <h1>{{numero}}</h1>
+
+
+<h1>{{numero}}</h1>

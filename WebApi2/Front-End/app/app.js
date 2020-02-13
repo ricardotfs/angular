@@ -1,4 +1,4 @@
-﻿var serviceBase = 'http://localhost:15905/';
+﻿var serviceBase = 'http://localhost:5554/';
 
 var app = angular.module('AngularAuthApp', ['ui.router', 'oc.lazyLoad', 'LocalStorageModule']);
 
