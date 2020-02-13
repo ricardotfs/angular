@@ -1,0 +1,89 @@
+
+body    { font-family: Graphik,Helvetica,Arial,sans_serif; }
+
+#mainnav-menu ul ul ul a { padding-left: 80px; }
+.hasRequired    { border: solid 1px red; }
+
+.menuItem.selected      { font-weight: bold; }
+
+.tableFixHead td {
+    line-height: 30px !important;
+}
+.tableFixHead           { overflow-y: auto; border: solid 1px #e5e5e5; } 
+.tableFixHead thead th  { position: sticky; top: 0; background-color: #fff; }
+.linha_red              { background-color: #f1b8b8 !important; }
+.linha_red td           { background-color: #f1b8b8 !important; }
+.linha_check            { background-color: red !important; }
+.linha_check td         { background-color: red !important; }
+
+.bootstrap-select.show-tick .dropdown-menu .selected span.check-mark { top: 15px !important; }
+.dropdown-menu.inner > .active > a {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    color: #7a878e !important;
+}
+
+
+.forcaShow {
+    display: inline-table !important;
+}
+
+#navbar {
+    z-index: 1001;
+}
+#mainnav-container { z-index: 1000; }
+
+.highcharts-credits   { display: none !important; }
+.highcharts-exporting-group   { display: none !important; }
+
+.selectProdutoOpo:hover { cursor: pointer; }
+
+.mainnav-sm .navbar-brand   { background-repeat: no-repeat; background-position: center; background-size: 50px; }
+.mainnav-lg .navbar-brand   { background-repeat: no-repeat; background-position: center; background-size: 90px; }
+
+.tooltip { position: fixed; }
+
+.rowred { background-color: #F0685E !important; color: #fff !important; }
+.rowred a:not(.menuItem) { color: #fff !important; }
+
+.rowyellow { background-color: #fffec8  !important; }
+.rowgreen { background-color: #c3f1b8 !important; }
+
+
+/* -- LOADERS -- */
+
+#loaderAction { position: fixed; top: 0; right: 0; width: 300px; height: 300px; background: #ed4e6e; -webkit-transition: -webkit-transform 0.3s; transition: transform 0.3s; -webkit-transform: translateX(100%) translateY(-100%) rotate(45deg); transform: translateX(100%) translateY(-100%) rotate(45deg); pointer-events: none; z-index: 10001; }
+#loaderAction.la-animate { -webkit-transform: translateX(50%) translateY(-50%) rotate(45deg); transform: translateX(50%) translateY(-50%) rotate(45deg); }
+#loaderAction::before, #loaderAction::after { position: absolute; bottom: 30px; left: 50%; display: block; border: 5px solid #fff; border-radius: 50%; content: ''; }
+#loaderAction::before { margin-left: -40px; width: 80px; height: 80px; border-right-color: #bb344f; border-left-color: #bb344f; -webkit-animation: rotation 3s linear infinite; animation: rotation 3s linear infinite; }
+#loaderAction::after { bottom: 50px; margin-left: -20px; width: 40px; height: 40px; border-top-color: #bb344f; border-bottom-color: #bb344f; -webkit-animation: rotation 1s linear infinite; animation: rotation 1s linear infinite; }
+
+@-webkit-keyframes rotation {
+    0%      { -webkit-transform: rotate(0deg); }
+    50%     { -webkit-transform: rotate(180deg); }
+    100%    { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes rotation {
+    0%      { transform: rotate(0deg); }
+    50%     { transform: rotate(180deg); }
+    100%    { transform: rotate(360deg); }
+}
+
+#loaderAction2 { position: fixed; top: 0; right: 0; width: 300px; height: 300px; background: #ed4e6e; -webkit-transition: -webkit-transform 0.3s; transition: transform 0.3s; -webkit-transform: translateX(100%) translateY(-100%) rotate(45deg); transform: translateX(100%) translateY(-100%) rotate(45deg); pointer-events: none; z-index: 10001; }
+#loaderAction2.la-animate { -webkit-transform: translateX(50%) translateY(-50%) rotate(45deg); transform: translateX(50%) translateY(-50%) rotate(45deg); }
+#loaderAction2::before, #loaderAction2::after { position: absolute; bottom: 30px; left: 50%; display: block; border: 5px solid #fff; border-radius: 50%; content: ''; }
+#loaderAction2::before { margin-left: -40px; width: 80px; height: 80px; border-right-color: #bb344f; border-left-color: #bb344f; -webkit-animation: rotation 3s linear infinite; animation: rotation 3s linear infinite; }
+#loaderAction2::after { bottom: 50px; margin-left: -20px; width: 40px; height: 40px; border-top-color: #bb344f; border-bottom-color: #bb344f; -webkit-animation: rotation 1s linear infinite; animation: rotation 1s linear infinite; }
+
+@-webkit-keyframes rotation {
+    0%      { -webkit-transform: rotate(0deg); }
+    50%     { -webkit-transform: rotate(180deg); }
+    100%    { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes rotation {
+    0%      { transform: rotate(0deg); }
+    50%     { transform: rotate(180deg); }
+    100%    { transform: rotate(360deg); }
+}

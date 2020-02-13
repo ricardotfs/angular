@@ -5,8 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="app\views\" />
-    <Folder Include="app\services\" />
+    <Folder Include="..\..\..\..\%2540Git\angular\AngularJsFirst\WebApplication10\app\demo\views\" />
+    <Folder Include="..\..\..\..\%2540Git\angular\AngularJsFirst\WebApplication10\app\demo\controller\services\" />
+    <Folder Include="app\demo\services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\%2540Git\angular\AngularJsFirst\WebApplication10\app\scripts\angular.min.js" />
   </ItemGroup>
 
 </Project>
