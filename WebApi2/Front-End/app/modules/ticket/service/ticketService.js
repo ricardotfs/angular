@@ -1,5 +1,5 @@
 ﻿
-
+'use strict';
 angular.module('AngularAuthApp').factory('ticketService', ['$http', 'ngAuthSettings',
     function ($http, ngAuthSettings) {
 
@@ -11,4 +11,5 @@ angular.module('AngularAuthApp').factory('ticketService', ['$http', 'ngAuthSetti
                 return response;
             })
         }
+        return objFactory;
     }]);
