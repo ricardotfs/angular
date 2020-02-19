@@ -5,10 +5,12 @@ angular.module('AngularAuthApp').directive('menucliente', function ($interval) {
         templateUrl: "app/templates/cliente.busca.html",
         replace: true,
         scope: {
-            nomepessoa: "="
+            nomepessoa: "=",
+            sobrenome: "=",
         },
         link: function (scope, element, dados) {
             scope.nomepessoa = dados.nomepessoa;
+            scope.sobrenome = dados.sobrenome;
         }
     };
 });
