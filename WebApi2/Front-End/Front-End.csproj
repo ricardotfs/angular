@@ -73,6 +73,9 @@
     <Content Include="app\controllers\homeController.js" />
     <Content Include="app\controllers\indexController.js" />
     <Content Include="app\controllers\loginController.js" />
+    <Content Include="app\modules\telefone\controller\telefoneController.js" />
+    <Content Include="app\modules\telefone\service\telefoneService.js" />
+    <Content Include="app\modules\telefone\view\telefone.html" />
     <Content Include="app\modules\ticket\service\ticketService.js" />
     <Content Include="app\modules\ticket\view\ticket.html" />
     <Content Include="app\modules\ticket\controller\ticketController.js" />
