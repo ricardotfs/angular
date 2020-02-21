@@ -8,6 +8,12 @@
             return $http.post(serviceBase + 'api/telefone/post', data).then(function (response) {
                 return response;
             })
+        };
+
+        objFactory.getFormulario = function () {
+            return $http.get(serviceBase + 'api/formulario/get').then(function (response) {
+                return response.data;
+            })
         }
         return objFactory;
     }]);

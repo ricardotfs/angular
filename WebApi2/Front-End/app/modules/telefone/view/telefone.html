@@ -1,10 +1,16 @@
 ﻿<div id="content-container">
     <form>
-        <div class="form-group col-lg-12">
-            <label for="exampleInputEmail1">Nome</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" ng-model="nome" value="{{nome}}" placeholder="Enter name">
+
+        <div ng-repeat="form in formulario" class="form-group col-lg-12">
+            <label for="exampleInputEmail1">{{form.nome}}</label>
+            <input type="{{form.tipo}}" class="form-control" id="exampleInputEmail1"  value="{{form.valor}}" placeholder="Enter {{form.nome}}">
         </div>
         <div class="form-group col-lg-12">
+            <button class="btn btn-primary" ng-click="salvar()">Salvar</button>
+        </div>
+
+
+        <!--<div class="form-group col-lg-12">
             <label for="exampleInputEmail1">Email address</label>
             <input type="email" class="form-control" id="exampleInputEmail1" ng-model="email" value="{{email}}" aria-describedby="emailHelp" placeholder="Enter email">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
@@ -19,9 +25,9 @@
         </div>
         <div class="form-group col-lg-12">
             <button class="btn btn-primary" ng-click="salvar()">Salvar</button>
-        </div>
+        </div>-->
     </form>
     <div id="message-gvp" class="alert alert-primary hidden" role="alert">
-        
+
     </div>
 </div>
