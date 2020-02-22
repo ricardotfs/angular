@@ -4,15 +4,14 @@
             $scope.nome = 'Ricardo Oliveira';
             $scope.email = 'Ricardo@gvp.com';
             $scope.senha = '123456';
-           // $scope.formulario = []
+            $scope.formulario = [];
            
 
             $ocLazyLoad.load('/app/modules/telefone/service/telefoneService.js').then(function () {
                 var service = $injector.get('telefoneService');
 
-                service.getFormulario().then(function (result) {
-                    
-                    $scope.formulario = result;
+                service.getFormulario().then(function (result) {                   
+                    $scope.formulario = result.data.campos;
                 })
 
                 $scope.salvar = function () {

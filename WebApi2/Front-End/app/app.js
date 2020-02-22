@@ -1,5 +1,5 @@
 ﻿var serviceBase = 'http://localhost:5554/';
-var version = '0.0.0.1'
+var version = '0.0.0.2'
 var app = angular.module('AngularAuthApp', ['ui.router', 'oc.lazyLoad', 'LocalStorageModule']);
 
 app.constant('ngAuthSettings', { apiServiceBaseUri: serviceBase });
