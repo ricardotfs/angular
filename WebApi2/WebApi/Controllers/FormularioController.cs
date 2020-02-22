@@ -12,8 +12,6 @@ namespace WebApi.Controllers
         [Route("api/formulario/get")]
         public IHttpActionResult Get()
         {
-
-
             var lista = new Formulario();
 
             lista.Campos.Add(new Campos { nome = "nome", tipo = "text", valor = "Ricardo Oliveira" });
