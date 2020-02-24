@@ -1,8 +1,8 @@
 ﻿<div id="content-container">
-    <form>
+    <form formulario="model">
         <div ng-repeat="form in formulario" class="form-group col-lg-12">
             <label for="exampleInputEmail1">{{form.nome}}</label>
-            <input type="{{form.tipo}}" class="form-control" id="exampleInputEmail1"  value="{{form.valor}}" placeholder="Enter {{form.nome}}">
+            <input type="{{form.tipo}}" class="form-control" id="exampleInputEmail1"  ng-model="form.valor" value="{{form.valor}}" placeholder="Enter {{form.nome}}">
         </div>
         <div class="form-group col-lg-12">
             <button class="btn btn-primary" ng-click="salvar()">Salvar</button>
