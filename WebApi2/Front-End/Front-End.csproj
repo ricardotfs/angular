@@ -81,6 +81,7 @@
     <Content Include="app\modules\ticket\controller\ticketController.js" />
     <Content Include="app\services\authInterceptorService.js" />
     <Content Include="app\services\authService.js" />
+    <Content Include="app\templates\formulario.html" />
     <Content Include="app\templates\cliente.busca.html" />
     <Content Include="app\views\home.html" />
     <Content Include="app\views\grid.html" />
