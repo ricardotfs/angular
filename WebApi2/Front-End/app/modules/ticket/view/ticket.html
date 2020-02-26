@@ -1,22 +1,7 @@
 ﻿<div id="content-container">
-    <div id="page-content" style="padding-top: 0;">
-        <div class="col-md-7">
-            <div class="panel-body panel">
-                <div class="col-md-12 mar-btm">
-                    <a class="btn btn-md btn-default" href="#/home"><i class="pli-arrow-left"></i> Voltar para home</a>
-                    <hr />
-                    <select id="dllDepto-gvp" >
-                        <option ng-repeat="depto in dllDepto" value="{{depto.id}}">{{depto.nome}}</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-        <div class="ticket-container">
-            <a class="btn btn-success" ng-click="home()">Ticket</a>
-        </div>
-
+    <formulariogvp formulario="formulario"></formulariogvp>
+    
+    <div class="form-group col-lg-12">
+        <button class="btn btn-primary" ng-click="salvar()">Salvar</button>
     </div>
 </div>
-
-
-<h1>{{numero}}</h1>

@@ -11,5 +11,10 @@ angular.module('AngularAuthApp').factory('ticketService', ['$http', 'ngAuthSetti
                 return response;
             })
         }
+        objFactory.getFormulario = function () {
+            return $http.get(serviceBase + 'api/formulario/get').then(function (response) {
+                return response.data;
+            })
+        }
         return objFactory;
     }]);
