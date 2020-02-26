@@ -10,8 +10,8 @@
             })
         };
 
-        objFactory.getFormulario = function () {
-            return $http.get(serviceBase + 'api/formulario/get').then(function (response) {
+        objFactory.getFormulario = function (tipoModulo) {
+            return $http.get(serviceBase + 'api/formulario/get?tipoModulo=' + tipoModulo).then(function (response) {
                 return response.data;
             })
         }

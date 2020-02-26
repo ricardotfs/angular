@@ -10,10 +10,17 @@ namespace WebApi.Controllers
     public class FormularioController : ApiController
     {
         [Route("api/formulario/get")]
-        public IHttpActionResult Get()
+        public IHttpActionResult Get(int tipoModulo)
         {
             var lista = new Formulario();
 
+            if(tipoModulo == 6)
+            {
+                lista.Campos.Add(new Campos { nome = "nome", tipo = "text", valor = "Ricardo Oliveira" });
+                lista.Campos.Add(new Campos { nome = "email", tipo = "email", valor = "ricardo123@gvp.com" });
+                
+                return Ok(new { data = lista });
+            }
             lista.Campos.Add(new Campos { nome = "nome", tipo = "text", valor = "Ricardo Oliveira" });
             lista.Campos.Add(new Campos { nome = "email", tipo = "email", valor = "ricardo123@gvp.com" });
             lista.Campos.Add(new Campos { nome = "senha", tipo = "password", valor = "senhateste" });

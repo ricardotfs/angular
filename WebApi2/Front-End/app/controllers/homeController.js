@@ -106,9 +106,6 @@ angular.module('AngularAuthApp').controller(
                 oReq.send();
             };
 
-            $scope.ticket = function () {
-                $location.path("/ticket");
-            };
         }
     ]
 );
