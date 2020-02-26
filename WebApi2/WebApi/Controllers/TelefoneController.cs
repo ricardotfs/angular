@@ -12,7 +12,7 @@ namespace WebApi.Controllers
     public class TelefoneController : ApiController
     {
         [Route("api/telefone/post")]
-        public IHttpActionResult Post(Telefone telefone)
+        public IHttpActionResult Post(List<Telefone> telefone)
         {
             var teste = telefone;
 
