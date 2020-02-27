@@ -16,17 +16,17 @@ namespace WebApi.Controllers
 
             if(tipoModulo == 6)
             {
-                lista.Campos.Add(new Campos { nome = "nome", tipo = "text", valor = "Ricardo Oliveira" });
-                lista.Campos.Add(new Campos { nome = "email", tipo = "email", valor = "ricardo123@gvp.com" });
+                lista.Campos.Add(new Campos { id = "nome", nome = "Nome", tipo = "text", valor = "Ricardo Oliveira" });
+                lista.Campos.Add(new Campos { id = "email", nome = "E-mail", tipo = "email", valor = "ricardo123@gvp.com" });
                 
                 return Ok(new { data = lista });
             }
-            lista.Campos.Add(new Campos { nome = "nome", tipo = "text", valor = "Ricardo Oliveira" });
-            lista.Campos.Add(new Campos { nome = "email", tipo = "email", valor = "ricardo123@gvp.com" });
-            lista.Campos.Add(new Campos { nome = "senha", tipo = "password", valor = "senhateste" });
-            lista.Campos.Add(new Campos { nome = "Data", tipo = "date", valor = "2020-01-13" });
-            lista.Campos.Add(new Campos { nome = "numero", tipo = "number", valor = "100" });
-            lista.Campos.Add(new Campos { nome = "endereco", tipo = "text", valor = "Rua Dimarães Antonio Sandey" });
+            lista.Campos.Add(new Campos { id = "txtnome", nome="Nome", tipo = "text", valor = "Ricardo Oliveira" });
+            lista.Campos.Add(new Campos { id = "txtemail", nome = "E-mail", tipo = "email", valor = "ricardo123@gvp.com" });
+            lista.Campos.Add(new Campos { id = "txtsenha", nome = "Senha", tipo = "password", valor = "senhateste" });
+            lista.Campos.Add(new Campos { id = "txtdata", nome = "Data", tipo = "date", valor = "2020-01-13" });
+            lista.Campos.Add(new Campos { id = "txtnumero", nome = "Numero", tipo = "number", valor = "100" });
+            lista.Campos.Add(new Campos { id = "txtendereco", nome = "Endereço", tipo = "text", valor = "Rua Dimarães Antonio Sandey" });
 
             return Ok(new { data = lista });
         }
@@ -38,6 +38,7 @@ namespace WebApi.Controllers
     }
     public class Campos
     {
+        public string id { get; set; }
         public string nome { get; set; }
         public string tipo { get; set; }
         public string valor { get; set; }
