@@ -25,6 +25,12 @@ angular.module('AngularAuthApp').directive('formulariogvp', function () {
                 formulario: "="
             },
             link: function (scope, element, dados) {
+                scope.validType = function (value,tipo) {
+                    if (tipo == 'date')
+                        return new Date(value);
+
+                    return value;
+                };
                 scope.formulario = scope.formulario;
             }
         };

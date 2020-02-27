@@ -24,7 +24,7 @@ namespace WebApi.Controllers
             lista.Campos.Add(new Campos { id = "txtnome", nome="Nome", tipo = "text", valor = "Ricardo Oliveira" });
             lista.Campos.Add(new Campos { id = "txtemail", nome = "E-mail", tipo = "email", valor = "ricardo123@gvp.com" });
             lista.Campos.Add(new Campos { id = "txtsenha", nome = "Senha", tipo = "password", valor = "senhateste" });
-            lista.Campos.Add(new Campos { id = "txtdata", nome = "Data", tipo = "date", valor = "2020-01-13" });
+            lista.Campos.Add(new Campos { id = "txtdata", nome = "Data", tipo = "date", valor = "2020-01-15" });
             lista.Campos.Add(new Campos { id = "txtnumero", nome = "Numero", tipo = "number", valor = "100" });
             lista.Campos.Add(new Campos { id = "txtendereco", nome = "Endereço", tipo = "text", valor = "Rua Dimarães Antonio Sandey" });
 
