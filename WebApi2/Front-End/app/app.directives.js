@@ -16,9 +16,6 @@ angular.module('AngularAuthApp').directive('menucliente', function ($interval) {
 });
 angular.module('AngularAuthApp').directive('editable', function () {
     return {
-        restrict: "AE",
-        scope: { editable: "=" },
-        require: '?ngModel',
         link: function (scope, elem, attrs, ctrl) {
             $.fn.datepicker.defaults.format = "dd/mm/yyyy";
             $('.datepicker').datepicker();
