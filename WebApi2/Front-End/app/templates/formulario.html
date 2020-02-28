@@ -2,17 +2,14 @@
     <div>
         <div ng-repeat="form in formulario" class="form-group col-lg-12">
             <label for="{{form.id}}">{{form.nome}}</label>
-            <input tooltip="Teste"  type="{{form.tipo}}" class="form-control" id="{{form.id}}" ng-model="form.valor" placeholder="Enter {{form.nome}}">
+            <div ng-if="form.tipo == 'date'">
+                <input tooltip="{{form.toolTip}}" editable type="text" class="form-control datepicker" id="{{form.id}}" ng-model="form.valor" placeholder="Enter {{form.nome}}">
+            </div>
+            <div ng-if="form.tipo != 'date'">
+                <input tooltip="{{form.toolTip}}" type="text" class="form-control" id="{{form.id}}" ng-model="form.valor" placeholder="Enter {{form.nome}}">
+            </div>
         </div>
         <br /><br />
     </div>
 
 
-
-    <!--<script>
-        $(document).ready(function () {
-            $(".datepicker").each(function (e) {
-                $(e).datepicker();
-            });
-        });
-    </script>-->

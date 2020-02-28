@@ -14,19 +14,19 @@ namespace WebApi.Controllers
         {
             var lista = new Formulario();
 
-            if(tipoModulo == 6)
+            if (tipoModulo == 6)
             {
                 lista.Campos.Add(new Campos { id = "nome", nome = "Nome", tipo = "text", valor = "Ricardo Oliveira" });
-                lista.Campos.Add(new Campos { id = "email", nome = "E-mail", tipo = "email", valor = "ricardo123@gvp.com" });
-                
+                lista.Campos.Add(new Campos { id = "txtdata", nome = "Data", tipo = "date", valor = "28/02/2020", toolTip = "Informe a data de cadastro" });
+
                 return Ok(new { data = lista });
             }
-            lista.Campos.Add(new Campos { id = "txtnome", nome="Nome", tipo = "text", valor = "Ricardo Oliveira" });
-            lista.Campos.Add(new Campos { id = "txtemail", nome = "E-mail", tipo = "email", valor = "ricardo123@gvp.com" });
-            lista.Campos.Add(new Campos { id = "txtsenha", nome = "Senha", tipo = "password", valor = "senhateste" });
-            lista.Campos.Add(new Campos { id = "txtdata", nome = "Data", tipo = "date", valor = "2020-01-15" });
-            lista.Campos.Add(new Campos { id = "txtnumero", nome = "Numero", tipo = "number", valor = "100" });
-            lista.Campos.Add(new Campos { id = "txtendereco", nome = "Endereço", tipo = "text", valor = "Rua Dimarães Antonio Sandey" });
+            lista.Campos.Add(new Campos { id = "txtnome", nome = "Nome", tipo = "text", valor = "Ricardo Oliveira", toolTip = "Informe o nome do cliente" });
+            lista.Campos.Add(new Campos { id = "txtemail", nome = "E-mail", tipo = "email", valor = "ricardo123@gvp.com", toolTip = "Informe o e-mail do clieente" });
+            lista.Campos.Add(new Campos { id = "txtsenha", nome = "Senha", tipo = "password", valor = "senhateste", toolTip = "Infome a senha do cliente" });
+            lista.Campos.Add(new Campos { id = "txtdata", nome = "Data", tipo = "date", valor = "28/02/2020", toolTip = "Informe a data de cadastro" });
+            lista.Campos.Add(new Campos { id = "txtnumero", nome = "Numero", tipo = "number", valor = "100", toolTip = "Informe o valor" });
+            lista.Campos.Add(new Campos { id = "txtendereco", nome = "Endereço", tipo = "text", valor = "Rua Dimarães Antonio Sandey", toolTip = "Informe o logradouro do cliente" });
 
             return Ok(new { data = lista });
         }
@@ -42,6 +42,7 @@ namespace WebApi.Controllers
         public string nome { get; set; }
         public string tipo { get; set; }
         public string valor { get; set; }
+        public string toolTip { get; set; }
     }
 }
 
