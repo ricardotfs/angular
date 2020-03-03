@@ -17,8 +17,9 @@ angular.module('AngularAuthApp').directive('menucliente', function ($interval) {
 angular.module('AngularAuthApp').directive('editable', function () {
     return {
         link: function (scope, elem, attrs, ctrl) {
-            $.fn.datepicker.defaults.format = "dd/mm/yyyy";
+            //$.fn.datepicker.defaults.format = "dd/mm/yyyy";
             $('.datepicker').datepicker({
+                format: 'dd/mm/yyyy',
                 autoclose: true,
                 todayHighlight: true
             });
