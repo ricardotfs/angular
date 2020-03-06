@@ -64,10 +64,22 @@ app.config(function ($stateProvider, $locationProvider, $urlRouterProvider) {
                     templateUrl: 'app/modules/telefone/view/telefone.html'
                 }
             },
-            resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
+            resolve: { 
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
-                    // you can lazy load files for an existing module
                     return $ocLazyLoad.load(`app/modules/telefone/controller/telefoneController.js?v=${noCache}`);
+                }]
+            }
+        }).state('formulario', {
+            url: '/formulario',
+            views: {
+                'lazyLoadView': {
+                    controller: 'MainCtrl',
+                    templateUrl: 'app/gestao/formulario/view/formulario.html'
+                }
+            },
+            resolve: {
+                loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load(`app/gestao/formulario/controller/formularioController.js?v=${noCache}`);
                 }]
             }
         });

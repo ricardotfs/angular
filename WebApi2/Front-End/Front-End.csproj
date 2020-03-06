@@ -73,6 +73,9 @@
     <Content Include="app\controllers\homeController.js" />
     <Content Include="app\controllers\indexController.js" />
     <Content Include="app\controllers\loginController.js" />
+    <Content Include="app\gestao\formulario\controller\formularioController.js" />
+    <Content Include="app\gestao\formulario\service\formularioService.js" />
+    <Content Include="app\gestao\formulario\view\formulario.html" />
     <Content Include="app\modules\telefone\controller\telefoneController.js" />
     <Content Include="app\modules\telefone\service\telefoneService.js" />
     <Content Include="app\modules\telefone\view\telefone.html" />
@@ -96,6 +99,7 @@
     <Content Include="css\extras\font-awesome.min.css" />
     <Content Include="css\fonts\fontawesome-webfont.svg" />
     <Content Include="css\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="css\main.css" />
     <Content Include="css\theme-black.css" />
     <Content Include="css\theme-blue.css" />
     <Content Include="css\theme-brown.css" />
