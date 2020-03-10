@@ -8,7 +8,7 @@
                 </div>
             </div>
             <div ng-if="form.tipo != 'date'">
-                <input tooltip="{{form.toolTip}}" type="text" class="form-control" id="{{form.id}}" ng-model="form.valor" placeholder="Enter {{form.nome}}">
+                <input tooltip="{{form.toolTip}}" type="text" class="form-control" id="{{form.id}}" ng-model="form.valor" value="{{form.valor | teste4"}}" placeholder="Enter {{form.nome}}">
             </div>
         </div>
         <br /><br />

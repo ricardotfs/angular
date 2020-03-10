@@ -61,3 +61,16 @@ angular.module('addressFormatter', []).filter('address', function () {
         return input.street + ', ' + input.city + ', ' + input.state + ', ' + input.zip;
     };
 });
+angular.module('AngularAuthApp').filter('teste4', function () {
+
+
+    return function (input) {
+
+        var numStr = /^-?(\d+\.?\d*)$|(\d*\.?\d+)$/;
+        if (numStr.test(input.toString())) {
+            return input + ' Only numbers';
+        }
+
+        return input;
+    };
+});
