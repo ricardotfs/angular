@@ -1,5 +1,5 @@
 ﻿
-angular.module('AngularAuthApp').controller('formularioController', function ($scope, $http, $timeout) {
+angular.module('AngularAuthApp').controller('formularioController', function ($scope, $timeout, $injector,$ocLazyLoad) {
     //var vm = this;
 
     $scope.gridOptions = {};
@@ -79,13 +79,11 @@ angular.module('AngularAuthApp').controller('formularioController', function ($s
         });
     };
 
-    //console.log("aui");
-    $http.get('http://localhost:5554/api/formulario/getItens')
-        .then(function (response) {
-          //  console.log(response);
-            var data = response.data;
+    $ocLazyLoad.load('/app/gestao/formulario/service/formularioService.js').then(function () {
+        var service = $injector.get('formularioService');
 
-            
+        service.getFormulario().then(function (data) {
+
             for (i = 0; i < data.length; i++) {
                 data[i].registered = new Date(data[i].registered);
                 data[i].gender = data[i].gender === 'male' ? 1 : 2;
@@ -99,10 +97,11 @@ angular.module('AngularAuthApp').controller('formularioController', function ($s
                 }
             }
             $scope.gridOptions.data = data;
-        });
-})
 
-    .filter('mapGender', function () {
+        })
+
+    });
+}).filter('mapGender', function () {
         var genderHash = {
             1: 'male',
             2: 'female'
@@ -115,9 +114,7 @@ angular.module('AngularAuthApp').controller('formularioController', function ($s
                 return genderHash[input];
             }
         };
-    })
-
-    .filter('mapStatus', function () {
+    }).filter('mapStatus', function () {
         var genderHash = {
             1: 'Bachelor',
             2: 'Nubile',
@@ -131,5 +128,4 @@ angular.module('AngularAuthApp').controller('formularioController', function ($s
                 return genderHash[input];
             }
         };
-    })
-    ;
+    });

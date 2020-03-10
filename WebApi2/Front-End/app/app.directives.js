@@ -67,8 +67,8 @@ angular.module('AngularAuthApp').filter('teste4', function () {
     return function (input) {
 
         var numStr = /^-?(\d+\.?\d*)$|(\d*\.?\d+)$/;
-        if (numStr.test(input.toString())) {
-            return input + ' Only numbers';
+        if (input == 'Nome') {
+            return input + ' Testando filters';
         }
 
         return input;

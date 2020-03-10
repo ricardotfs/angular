@@ -44,6 +44,43 @@ namespace WebApi.Controllers
                 balance = "$1,467.00",
                 picture = "http=//placehold.it/32x32",
                 age = 38,
+                name = "1Marci Emerson",
+                gender = "female",
+                company = "Thredz",
+                email = "1marciemerson@thredz.com",
+                phone = "+1 (988) 560-2140",
+                address = new
+                {
+                    street = 182,
+                    city = "Mulino",
+                    state = "Montana",
+                    zip = 9710
+                },
+                about = "Laborum commodo velit fugiat voluptate ut sit occaecat veniam do voluptate adipisicing reprehenderit incididunt. Minim incididunt fugiat ullamco labore in ullamco Lorem eiusmod ad duis dolore adipisicing. Nulla ullamco proident nisi est ullamco aliquip nisi mollit consectetur consequat veniam ipsum. Ex eu deserunt aute esse. Ut aliquip quis commodo ullamco esse incididunt velit aliquip laboris tempor ut ipsum.\r\n",
+                registered = DateTime.Now,
+                friends = new List<object> {
+                                                new {
+                                                id= 0,
+                                                    name= "Brooks Hickman"
+                                                },
+                                               new {
+                                                    id = 1,
+                                                    name = "Mara Everett"
+                                                },
+                                                new {
+                                                    id = 2,
+                                                    name = "Mable Flores"
+                                                }
+                                            }
+            }; 
+            var aa1 = new
+            {
+                id = 499,
+                guid = "29dff816-4f3d-4f4a-85ec-d56c0dbbf7d6",
+                isActive = true,
+                balance = "$1,467.00",
+                picture = "http=//placehold.it/32x32",
+                age = 38,
                 name = "Marci Emerson",
                 gender = "female",
                 company = "Thredz",
@@ -76,6 +113,7 @@ namespace WebApi.Controllers
 
             var cc = new List<object>();
             cc.Add(aa);
+            cc.Add(aa1);
 
             return Ok(cc);
 
