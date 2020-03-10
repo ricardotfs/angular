@@ -1,6 +1,6 @@
 ﻿var serviceBase = 'http://localhost:5554/';
 var version = '0.0.0.2'
-var app = angular.module('AngularAuthApp', ['ui.router', 'oc.lazyLoad', 'LocalStorageModule']);
+var app = angular.module('AngularAuthApp', ['ui.router', 'oc.lazyLoad', 'LocalStorageModule', 'ngTouch', 'ui.grid', 'ui.grid.edit', 'addressFormatter']);
 
 app.constant('ngAuthSettings', { apiServiceBaseUri: serviceBase });
 
@@ -73,7 +73,7 @@ app.config(function ($stateProvider, $locationProvider, $urlRouterProvider) {
             url: '/formulario',
             views: {
                 'lazyLoadView': {
-                    controller: 'MainCtrl',
+                    controller: 'formularioController',
                     templateUrl: 'app/gestao/formulario/view/formulario.html'
                 }
             },

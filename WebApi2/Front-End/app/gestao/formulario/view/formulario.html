@@ -1,12 +1,12 @@
-﻿<div ng-controller="MainCtrl as $ctrl">
-    <strong>Data Length:</strong> {{ $ctrl.gridOptions.data.length | number }}
+﻿<div>
+    <strong>Data Length:</strong> {{ gridOptions.data.length | number }}
     <br>
-    <strong>Last Cell Edited:</strong> {{$ctrl.msg.lastCellEdited}}
+    <strong>Last Cell Edited:</strong> {{msg.lastCellEdited}}
     <br>
-    <div ui-grid="$ctrl.gridOptions" ui-grid-edit class="grid" style="width:100%!important"></div>
+    <div ui-grid="gridOptions" ui-grid-edit class="grid" style="width:100%!important"></div>
     <br>
     <div><strong>Last file uploaded:</strong></div>
-    <div>{{$ctrl.lastFile}}</div>
+    <div>{{lastFile}}</div>
 </div>
 <style>
     /*.viewport {

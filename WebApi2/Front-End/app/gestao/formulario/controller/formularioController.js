@@ -1,17 +1,10 @@
-﻿var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.edit', 'addressFormatter']);
+﻿
+angular.module('AngularAuthApp').controller('formularioController', function ($scope, $http, $timeout) {
+    //var vm = this;
 
-angular.module('addressFormatter', []).filter('address', function () {
-    return function (input) {
-        return input.street + ', ' + input.city + ', ' + input.state + ', ' + input.zip;
-    };
-});
+    $scope.gridOptions = {};
 
-app.controller('MainCtrl', function ($scope, $http, $timeout) {
-    var vm = this;
-
-    vm.gridOptions = {};
-
-    vm.storeFile = function (gridRow, gridCol, files) {
+    $scope.storeFile = function (gridRow, gridCol, files) {
         // ignore all but the first file, it can only select one anyway
         // set the filename into this column
         gridRow.entity.filename = files[0].name;
@@ -20,7 +13,7 @@ app.controller('MainCtrl', function ($scope, $http, $timeout) {
         var setFile = function (fileContent) {
             gridRow.entity.file = fileContent.currentTarget.result;
             // put it on scope so we can display it - you'd probably do something else with it
-            vm.lastFile = fileContent.currentTarget.result;
+            $scope.lastFile = fileContent.currentTarget.result;
             $scope.$apply();
         };
         var reader = new FileReader();
@@ -28,7 +21,7 @@ app.controller('MainCtrl', function ($scope, $http, $timeout) {
         reader.readAsText(files[0]);
     };
 
-    vm.gridOptions.columnDefs = [
+    $scope.gridOptions.columnDefs = [
         { name: 'id', enableCellEdit: false, width: '10%' },
         { name: 'name', displayName: 'Name (editable)', width: '20%' },
         { name: 'age', displayName: 'Age', type: 'number', width: '10%' },
@@ -71,25 +64,28 @@ app.controller('MainCtrl', function ($scope, $http, $timeout) {
         },
         {
             name: 'filename', displayName: 'File', width: '20%', editableCellTemplate: 'ui-grid/fileChooserEditor',
-            editFileChooserCallback: vm.storeFile
+            editFileChooserCallback: $scope.storeFile
         }
     ];
 
-    vm.msg = {};
+    $scope.msg = {};
 
-    vm.gridOptions.onRegisterApi = function (gridApi) {
+    $scope.gridOptions.onRegisterApi = function (gridApi) {
         //set gridApi on scope
-        vm.gridApi = gridApi;
+        $scope.gridApi = gridApi;
         gridApi.edit.on.afterCellEdit($scope, function (rowEntity, colDef, newValue, oldValue) {
-            vm.msg.lastCellEdited = 'edited row id:' + rowEntity.id + ' Column:' + colDef.name + ' newValue:' + newValue + ' oldValue:' + oldValue;
+            $scope.msg.lastCellEdited = 'edited row id:' + rowEntity.id + ' Column:' + colDef.name + ' newValue:' + newValue + ' oldValue:' + oldValue;
             $scope.$apply();
         });
     };
 
+    //console.log("aui");
     $http.get('http://localhost:5554/api/formulario/getItens')
         .then(function (response) {
+          //  console.log(response);
             var data = response.data;
 
+            
             for (i = 0; i < data.length; i++) {
                 data[i].registered = new Date(data[i].registered);
                 data[i].gender = data[i].gender === 'male' ? 1 : 2;
@@ -102,7 +98,7 @@ app.controller('MainCtrl', function ($scope, $http, $timeout) {
                     data[i].foo = { bar: [{ baz: 2, options: [{ value: 'dog' }, { value: 'cat' }] }] }
                 }
             }
-            vm.gridOptions.data = data;
+            $scope.gridOptions.data = data;
         });
 })
 
