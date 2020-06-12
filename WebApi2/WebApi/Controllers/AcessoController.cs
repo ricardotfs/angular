@@ -11,7 +11,6 @@ namespace WebApi.Controllers
     [Authorize]
     public class AcessoController : ApiController
     {
-
         public static bool Logar(string login, string senha)
         {
             if (login == "admin" && senha == "admin")

@@ -1,7 +1,7 @@
 
 angular.module('AngularAuthApp').controller(
-    "homeController", ['$http', '$rootScope', '$scope', 'ngAuthSettings','$location' ,
-        function ($http, $rootScope, $scope, ngAuthSettings, $location) {
+    "homeController", ['$http', '$rootScope', '$scope', 'ngAuthSettings', 
+        function ($http, $rootScope, $scope, ngAuthSettings) {
 
             var serviceBase = ngAuthSettings.apiServiceBaseUri;
 
