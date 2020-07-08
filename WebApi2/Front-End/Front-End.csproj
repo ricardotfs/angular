@@ -76,6 +76,10 @@
     <Content Include="app\services\authInterceptorService.js" />
     <Content Include="app\services\authService.js" />
     <Content Include="app\templates\cliente.busca.html" />
+    <Content Include="app\templates\formulario.html" />
+    <Content Include="app\ticket\controller\ticketController.js" />
+    <Content Include="app\ticket\service\ticketService.js" />
+    <Content Include="app\ticket\view\ticket.html" />
     <Content Include="app\views\home.html" />
     <Content Include="app\views\grid.html" />
     <Content Include="app\views\login.html" />
