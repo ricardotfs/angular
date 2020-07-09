@@ -2,7 +2,7 @@
     function ($injector, $scope, $location) {
     
     $scope.login = function () {
-        var data = { userName: "admin", password: "admin" };
+        var data = { userName: "admin", password: "admin" };    
 
         var authService = $injector.get('authService');
         

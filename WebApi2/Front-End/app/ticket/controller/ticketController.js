@@ -14,6 +14,16 @@
                     $scope.formulario = result.data.campos;
                 })
 
+                $scope.salvar = function () {
+                    service.salvar($scope.formulario).then(function (result) {
+                        $scope.mes = result.data.status;
+                        //$location.path("/home");
+                    },function (response) {
+
+                       var a = response;
+                    })
+                };
+
                 //service.getDepto().then(function (result) {
                 //    $scope.dllDepto = result.data.data;
                 //})

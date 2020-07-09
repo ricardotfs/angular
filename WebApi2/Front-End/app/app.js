@@ -22,7 +22,7 @@ app.config(function ($stateProvider, $locationProvider, $urlRouterProvider) {
           resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
               loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
                   // you can lazy load files for an existing module
-                  return $ocLazyLoad.load('app/controllers/homeController.js');
+                  return $ocLazyLoad.load('app/controllers/homeController.js?v=' + noCache);
               }]
           }
         })
@@ -37,7 +37,7 @@ app.config(function ($stateProvider, $locationProvider, $urlRouterProvider) {
           resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
               loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
                   // you can lazy load files for an existing module
-                  return $ocLazyLoad.load('app/controllers/loginController.js');
+                  return $ocLazyLoad.load('app/controllers/loginController.js?v=' + noCache);
               }]
           }
       })
@@ -52,7 +52,7 @@ app.config(function ($stateProvider, $locationProvider, $urlRouterProvider) {
             resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
                     // you can lazy load files for an existing module
-                    return $ocLazyLoad.load('app/ticket/controller/ticketController.js');
+                    return $ocLazyLoad.load('app/ticket/controller/ticketController.js?v=' + noCache);
                 }]
             }
         })
@@ -67,7 +67,7 @@ app.config(function ($stateProvider, $locationProvider, $urlRouterProvider) {
             resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
                     // you can lazy load files for an existing module
-                    return $ocLazyLoad.load('app/controllers/loginController.js');
+                    return $ocLazyLoad.load('app/controllers/loginController.js?v=' + noCache);
                 }]
             }
         });
