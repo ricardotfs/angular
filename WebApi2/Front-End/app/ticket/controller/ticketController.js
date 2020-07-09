@@ -10,17 +10,16 @@
             $ocLazyLoad.load('/app/ticket/service/ticketService.js').then(function () {
 
                 var service = $injector.get('ticketService');
+
                 service.getFormulario($scope.tipoModulo).then(function (result) {
                     $scope.formulario = result.data.campos;
                 })
 
                 $scope.salvar = function () {
                     service.salvar($scope.formulario).then(function (result) {
-                        $scope.mes = result.data.status;
-                        //$location.path("/home");
-                    },function (response) {
 
-                       var a = response;
+                        $scope.mes = result;
+                        $location.path("/home");
                     })
                 };
 

@@ -11,9 +11,8 @@ angular.module('AngularAuthApp').factory('ticketService', ['$http', 'ngAuthSetti
         //    })
         //}
         objFactory.salvar = function (data) {
-            $http.post(serviceBase + 'api/formulario/salvar', data, { headers: { 'Content-Type': 'application/json' } } ).then(function (response) {
-                return response.data;
-            })
+            var promise = $http.post(serviceBase + 'api/formulario/salvar', data, { headers: { 'Content-Type': 'application/json' } });
+            return promise;
         };
         objFactory.getFormulario = function (tipoModulo) {
             return $http.get(serviceBase + 'api/formulario/get?tipoModulo=' + tipoModulo).then(function (response) {
