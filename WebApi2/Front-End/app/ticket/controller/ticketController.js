@@ -19,6 +19,7 @@
                     service.salvar($scope.formulario).then(function (result) {
 
                         $scope.mes = result;
+                        alert("Salvo com sucesso");
                         $location.path("/home");
                     })
                 };
