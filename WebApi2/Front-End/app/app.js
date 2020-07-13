@@ -56,6 +56,21 @@ app.config(function ($stateProvider, $locationProvider, $urlRouterProvider) {
                 }]
             }
         })
+        .state('detailTicket', {
+            url: "/detailTicket", // root route
+            views: {
+                "lazyLoadView": {
+                    controller: 'detailTicketController', // This view will use AppCtrl loaded below in the resolve
+                    templateUrl: 'app/ticket/view/detailTicket.html'
+                }
+            },
+            resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
+                loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    // you can lazy load files for an existing module
+                    return $ocLazyLoad.load('app/ticket/controller/detailTicketController.js?v=' + noCache);
+                }]
+            }
+        })
         .state('teste', {
             url: "/teladagrid", // root route
             views: {
