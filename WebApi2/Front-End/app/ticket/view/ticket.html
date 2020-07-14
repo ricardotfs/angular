@@ -1,7 +1,8 @@
-﻿<div id="content-container">
-    <formulariogvp tipoModulo="6" formulario="formulario"></formulariogvp>
-
-    <div class="form-group col-lg-12">
-        <button class="btn btn-primary" ng-click="salvar()">Salvar</button>
-    </div>
-</div>
+﻿
+<button id="filterToggle" type="button" class="btn btn-success" ng-click="$ticketController.toggleFilterRow()">Toggle Filter</button>
+<button id="refreshButton" type="button" class="btn btn-success" ng-click="$ticketController.refreshData()">Refresh Data</button>  <strong>Calls Pending:</strong> <span ng-bind="$ticketController.callsPending"></span>
+<br>
+<br>
+<strong>{{ myData.length }} rows</strong>
+<br>
+<div id="grid1" ui-grid="$ticketController.gridOptions" ui-grid-cellNav ui-grid-edit ui-grid-resize-columns ui-grid-pinning ui-grid-selection ui-grid-move-columns ui-grid-importer ui-grid-exporter ui-grid-grouping class="grid"></div>
