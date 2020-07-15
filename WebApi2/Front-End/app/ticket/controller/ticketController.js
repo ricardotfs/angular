@@ -1,7 +1,6 @@
-﻿var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.cellNav', 'ui.grid.edit', 'ui.grid.resizeColumns', 'ui.grid.pinning', 'ui.grid.selection', 'ui.grid.moveColumns', 'ui.grid.exporter', 'ui.grid.importer', 'ui.grid.grouping']);
-
-app.controller('MainCtrl',
-    function ($scope, $http, $timeout, $interval, uiGridConstants, uiGridGroupingConstants) {
+﻿
+angular.module('AngularAuthApp').controller('MainCtrl',
+    function ($scope, $http, $timeout, $interval, $injector, $ocLazyLoad,uiGridConstants, uiGridGroupingConstants) {
         var vm = this,
             gridApi;
 
@@ -60,12 +59,12 @@ app.controller('MainCtrl',
             $scope.myData = [];
 
             var start = new Date();
-            var sec = $interval(function () {
+            $ocLazyLoad.load('/app/ticket/service/ticketService.js').then(function () {
                 vm.callsPending++;
+                var service = $injector.get('ticketService');
 
-                $http.get('https://cdn.rawgit.com/angular-ui/ui-grid.info/gh-pages/data/500_complex.json')
-                    .then(function (response) {
-                        var data = response.data;
+                service.getItens().then(function (result) {
+                        var data = result.data;
 
                         vm.callsPending--;
 
@@ -75,12 +74,8 @@ app.controller('MainCtrl',
                             row.registered = new Date(row.registered)
                             $scope.myData.push(row);
                         });
-                    })
-                    .catch(function () {
-                        vm.callsPending--;
-                    });
-            }, 200, 10);
-
+                })
+            });
 
             var timeout = $timeout(function () {
                 $interval.cancel(sec);
