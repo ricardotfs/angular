@@ -1,5 +1,6 @@
-﻿
-angular.module('AngularAuthApp').controller('ticketController',
+﻿var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.cellNav', 'ui.grid.edit', 'ui.grid.resizeColumns', 'ui.grid.pinning', 'ui.grid.selection', 'ui.grid.moveColumns', 'ui.grid.exporter', 'ui.grid.importer', 'ui.grid.grouping']);
+
+app.controller('MainCtrl',
     function ($scope, $http, $timeout, $interval, uiGridConstants, uiGridGroupingConstants) {
         var vm = this,
             gridApi;
@@ -62,7 +63,7 @@ angular.module('AngularAuthApp').controller('ticketController',
             var sec = $interval(function () {
                 vm.callsPending++;
 
-                $http.get('/data/500_complex.json')
+                $http.get('https://cdn.rawgit.com/angular-ui/ui-grid.info/gh-pages/data/500_complex.json')
                     .then(function (response) {
                         var data = response.data;
 

@@ -1,8 +1,13 @@
 ﻿
-<button id="filterToggle" type="button" class="btn btn-success" ng-click="$ticketController.toggleFilterRow()">Toggle Filter</button>
-<button id="refreshButton" type="button" class="btn btn-success" ng-click="$ticketController.refreshData()">Refresh Data</button>  <strong>Calls Pending:</strong> <span ng-bind="$ticketController.callsPending"></span>
-<br>
-<br>
-<strong>{{ myData.length }} rows</strong>
-<br>
-<div id="grid1" ui-grid="$ticketController.gridOptions" ui-grid-cellNav ui-grid-edit ui-grid-resize-columns ui-grid-pinning ui-grid-selection ui-grid-move-columns ui-grid-importer ui-grid-exporter ui-grid-grouping class="grid"></div>
+
+    <div ng-controller="MainCtrl as $ctrl">
+        <button id="filterToggle" type="button" class="btn btn-success" ng-click="$ctrl.toggleFilterRow()">Toggle Filter</button>
+        <button id="refreshButton" type="button" class="btn btn-success" ng-click="$ctrl.refreshData()">Refresh Data</button>  <strong>Calls Pending:</strong> <span ng-bind="$ctrl.callsPending"></span>
+        <br>
+        <br>
+        <strong>{{ myData.length }} rows</strong>
+        <br>
+        <div id="grid1" ui-grid="$ctrl.gridOptions" ui-grid-cellNav ui-grid-edit ui-grid-resize-columns ui-grid-pinning ui-grid-selection ui-grid-move-columns ui-grid-importer ui-grid-exporter ui-grid-grouping class="grid"></div>
+    </div>
+
+
