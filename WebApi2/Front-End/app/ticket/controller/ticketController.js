@@ -1,5 +1,5 @@
 ﻿
-angular.module('AngularAuthApp').controller('MainCtrl',
+angular.module('AngularAuthApp').controller('ticketController',
     function ($scope, $http, $timeout, $interval, $injector, $ocLazyLoad,uiGridConstants, uiGridGroupingConstants) {
         var vm = this,
             gridApi;
@@ -77,6 +77,7 @@ angular.module('AngularAuthApp').controller('MainCtrl',
                 })
             });
 
+            var sec = 100;
             var timeout = $timeout(function () {
                 $interval.cancel(sec);
                 vm.left = '';

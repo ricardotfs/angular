@@ -11,7 +11,7 @@ app.config(function ($stateProvider, $locationProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/");
     $locationProvider.hashPrefix('');
     
-    var noCache = 1;//Math.floor(Math.random() * 11);
+    var noCache = Math.floor(Math.random() * 11);
 
     $stateProvider
       .state('index', {
@@ -48,7 +48,7 @@ app.config(function ($stateProvider, $locationProvider, $urlRouterProvider) {
             url: "/ticket", // root route
             views: {
                 "lazyLoadView": {
-                    controller: 'MainCtrl', // This view will use AppCtrl loaded below in the resolve
+                    controller: 'ticketController', // This view will use AppCtrl loaded below in the resolve
                     templateUrl: 'app/ticket/view/ticket.html'
                 }
             },
