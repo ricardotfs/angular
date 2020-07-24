@@ -84,7 +84,7 @@
     <Content Include="app\ticket\view\detailTicket.html" />
     <Content Include="app\ticket\view\ticket.html" />
     <Content Include="app\views\home.html" />
-    <Content Include="app\views\grid.html" />
+    <Content Include="app\templates\grid.html" />
     <Content Include="app\views\login.html" />
     <Content Include="audio\alert.mp3" />
     <Content Include="audio\fail.mp3" />

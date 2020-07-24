@@ -54,17 +54,20 @@ angular.module('AngularAuthApp').directive('formulariogvp', function () {
     }
 
 });
-angular.module('AngularAuthApp').directive('gridGvp', function ($scope, $http, ngAuthSettings, $timeout, $interval, $injector, $ocLazyLoad, uiGridConstants, uiGridGroupingConstants) {
+angular.module('AngularAuthApp').directive('grid', function () {
     try {
         return {
             restrict: "AE",
             templateUrl: "app/templates/grid.html",
             replace: true,
             scope: {
-                formulario: "="
+                formulario: "=",
+                texto: "="
             },
-            link: function (scope, element, attrs, uiGridConstants, uiGridGroupingConstants) {
-             
+            link: function (scope, element, dados) {
+
+                scope.formulario = scope.formulario;
+                scope.texto = scope.texto;
             }
         };
     } catch (e) {

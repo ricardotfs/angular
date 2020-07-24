@@ -13,6 +13,8 @@
 
                 service.getFormulario($scope.tipoModulo).then(function (result) {
                     $scope.formulario = result.data.campos;
+                    $scope.texto = "asdfasdfsadfsda";
+                        
                 })
 
                 $scope.salvar = function () {
