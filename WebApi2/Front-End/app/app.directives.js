@@ -54,20 +54,56 @@ angular.module('AngularAuthApp').directive('formulariogvp', function () {
     }
 
 });
-angular.module('AngularAuthApp').directive('grid', function () {
+angular.module('AngularAuthApp').directive('gridgvp',  function () {
     try {
         return {
             restrict: "AE",
             templateUrl: "app/templates/grid.html",
             replace: true,
             scope: {
-                formulario: "=",
-                texto: "="
+                
             },
-            link: function (scope, element, dados) {
+            link: function (scope, element, dados, uiGridConstants, uiGridGroupingConstants, localStorageService) {
 
-                scope.formulario = scope.formulario;
                 scope.texto = scope.texto;
+
+                scope.gridOptions1 = {
+                    paginationPageSizes: [25, 50, 75],
+                    paginationPageSize: 25,
+                    columnDefs: [
+                        { name: 'name' },
+                        { name: 'gender' },
+                        { name: 'company' }
+                    ]
+                };
+                scope.gridOptions2 = {
+                    enablePaginationControls: false,
+                    paginationPageSize: 25,
+                    columnDefs: [
+                        { name: 'name' },
+                        { name: 'gender' },
+                        { name: 'company' }
+                    ]
+                };
+
+                scope.gridOptions2.onRegisterApi = function (gridApi) {
+                    scope.gridApi2 = gridApi;
+                }
+
+                var array = [
+                    {
+                        name: "Ethel Price",
+                        gender: "female",
+                        company: "Enersol"
+                    }];
+                scope.gridOptions1.data = array;
+                scope.gridOptions2.data = array;
+
+                //$http.get('https://cdn.rawgit.com/angular-ui/ui-grid.info/gh-pages/data/100.json')
+                //    .then(function (response) {
+                //        $scope.gridOptions1.data = response.data;
+                //        $scope.gridOptions2.data = response.data;
+                //    });
             }
         };
     } catch (e) {

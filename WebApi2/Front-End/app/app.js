@@ -1,9 +1,7 @@
 ﻿var serviceBase = 'http://localhost:15905/';
 
 var app = angular.module('AngularAuthApp', ['ui.router', 'oc.lazyLoad', 'LocalStorageModule',
-    'ngTouch', 'ui.grid', 'ui.grid.cellNav', 'ui.grid.edit', 'ui.grid.resizeColumns',
-    'ui.grid.pinning', 'ui.grid.selection',
-    'ui.grid.moveColumns', 'ui.grid.exporter', 'ui.grid.importer', 'ui.grid.grouping']);
+    'ngTouch', 'ui.grid', 'ui.grid.pagination']);
 
 app.constant('ngAuthSettings', { apiServiceBaseUri: serviceBase });
 
