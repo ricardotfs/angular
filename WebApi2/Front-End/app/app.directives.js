@@ -177,7 +177,7 @@ angular.module('AngularAuthApp').directive('gridgvp', function () {
     }
 
 });
-angular.module('AngularAuthApp').directive('gridgvpcuston', function () {
+angular.module('AngularAuthApp').directive('gridgvpcuston', function ($http,ngAuthSettings) {
     try {
         return {
             restrict: "AE",
@@ -188,118 +188,32 @@ angular.module('AngularAuthApp').directive('gridgvpcuston', function () {
             },
             link: function (scope, element, dados) {
 
-                var colunas = [];
-                if (scope.tipo == 'ticket') {
-                    colunas = [
-                        { name: 'name' },
-                        { name: 'gender' },
-                        { name: 'teste' },
-                        { name: 'company' }
-                    ];
-                }
+                var serviceBase = ngAuthSettings.apiServiceBaseUri;
+                var colunas = []
+                var list = []
+                $http.get(serviceBase + 'api/grid/getColumns?tipoModulo=6')
+                    .then(function (response) {
+                        colunas = response.data.data;
+                    });
+
                 scope.texto = scope.texto;
 
                 scope.gridOptions1 = {
                     paginationPageSizes: [5, 25, 50, 75],
                     paginationPageSize: 5,
-                    columnDefs: colunas
+                    columnDefs: colunas,
                 };
 
-                var array = [
-                    {
-                        name: "1Ethel Price",
-                        gender: "female",
-                        company: "Enersol"
-                    }, {
-                        name: "2Ethel Price",
-                        gender: "female",
-                        company: "Enersol"
-                    }, {
-                        name: "Ethel Price",
-                        gender: "female",
-                        company: "Enersol"
-                    }, {
-                        name: "4Ethel Price",
-                        gender: "female",
-                        company: "Enersol"
-                    }, {
-                        name: "5Ethel Price",
-                        gender: "female",
-                        company: "Enersol"
-                    }, {
-                        name: "6Ethel Price",
-                        gender: "female",
-                        company: "Enersol"
-                    }, {
-                        name: "7Ethel Price",
-                        gender: "female",
-                        company: "Enersol"
-                    }, {
-                        name: "8Ethel Price",
-                        gender: "female",
-                        company: "Enersol"
-                    }, {
-                        name: "9Ethel Price",
-                        gender: "female",
-                        company: "Enersol"
-                    }, {
-                        name: "0Ethel Price",
-                        gender: "female",
-                        company: "Enersol"
-                    }, {
-                        name: "11Ethel Price",
-                        gender: "22female",
-                        company: "Enersol"
-                    }, {
-                        name: "33Ethel Price",
-                        gender: "female",
-                        company: "44Enersol"
-                    }, {
-                        name: "55Ethel Price",
-                        gender: "female",
-                        company: "Enersol"
-                    }, {
-                        name: "66Ethel Price",
-                        gender: "female",
-                        company: "Enersol"
-                    }, {
-                        name: "77Ethel Price",
-                        gender: "female",
-                        company: "Enersol"
-                    }, {
-                        name: "88Ethel Price",
-                        gender: "female",
-                        company: "Enersol"
-                    }, {
-                        name: "99Ethel Price",
-                        gender: "female",
-                        company: "Enersol"
-                    }, {
-                        name: "Ethel Price",
-                        gender: "female",
-                        company: "Enersol"
-                    }, {
-                        name: "Ethel Price",
-                        gender: "female",
-                        company: "Enersol"
-                    }, {
-                        name: "Ethel Price",
-                        gender: "female",
-                        company: "Enersol"
-                    }, {
-                        name: "Ethel Price",
-                        gender: "female",
-                        company: "Enersol"
-                    }];
-                scope.gridOptions1.data = array;
+                $http.get(serviceBase + 'api/grid/data?tipoModulo=6')
+                    .then(function (response) {
+                        list = response.data.data;
+                        scope.gridOptions1.data = list;
+                    });
 
-                //$http.get('https://cdn.rawgit.com/angular-ui/ui-grid.info/gh-pages/data/100.json')
-                //    .then(function (response) {
-                //        $scope.gridOptions1.data = response.data;
-                //        $scope.gridOptions2.data = response.data;
-                //    });
+                scope.gridOptions1.totalItems = 5;
+
             }
-        };
+        }
     } catch (e) {
         console.log(e);
     }
