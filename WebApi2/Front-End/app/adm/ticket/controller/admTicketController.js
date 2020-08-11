@@ -2,7 +2,7 @@
     ['$scope', '$location', '$injector', '$ocLazyLoad',
         function ($scope, $location, $injector, $ocLazyLoad) {
 
-            $scope.types = [{ value: "0", text: "String" }, { value: "1", text: "Int" }];
+            $scope.types = [{ value: 0, text: "String" }, { value: 1, text: "Int" }];
             $scope.selectedId = 0;
             $scope.tipoModulo = 6;
 
@@ -12,10 +12,9 @@
 
                 service.getFields($scope.tipoModulo).then(function (result) {
                     $scope.choices = result;
-                })
-
-                //$scope.choices = [{ id: '', nome: '', tipo: '' }];
-
+                    $scope.choices.push({ id: '', nome: '', tipo: '' });
+                });
+               
                 $scope.addNewChoice = function () {
                     var newItemNo = $scope.choices.length + 1;
                     $scope.choices.push({ id: '', nome: '', tipo: '' });
@@ -34,6 +33,7 @@
 
                 $scope.salvar = function () {
 
+                    var a = 0;
                 }
             });
         }])
