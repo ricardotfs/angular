@@ -76,7 +76,7 @@ app.config(function ($stateProvider, $locationProvider, $urlRouterProvider) {
             url: "/admticket", // root route
             views: {
                 "lazyLoadView": {
-                    controller: 'ticketController', // This view will use AppCtrl loaded below in the resolve
+                    controller: 'admTicketController', // This view will use AppCtrl loaded below in the resolve
                     templateUrl: 'app/adm/ticket/views/admTicket.html'
                 }
             },

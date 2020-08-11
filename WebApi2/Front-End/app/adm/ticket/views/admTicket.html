@@ -1,3 +1,25 @@
-﻿<div>
-    <h1>Teste</h1>
+﻿<div class="container">
+    <h1>Ticket - configuração de campos</h1>
+    <hr />
+    <div class="form-group" data-ng-repeat="choice in choices">
+        <label for="choice" ng-show="showChoiceLabel(choice)">Campo</label>
+        <button ng-show="showAddChoice(choice)" ng-click="addNewChoice()">Add Campo</button>
+        <button ng-click="removeNewChoice()">Remove Campo</button>
+        <input type="text" ng-modal="{{choice.name}}" name="" placeholder="Entre com o nome do campo" value="{{choice.id}}">
+        
+        <select ng-model="selectedId">
+            <option ng-repeat="type in types" id="{{type.value}}" value="{{type.value}}" label="{{type.text}}">{{type.text}}</option>
+        </select>
+
+    </div>
 </div>
+
+<style>
+    input {
+        width: 200px;
+    }
+    select {
+        width: 200px;
+        height:23px;
+    }
+</style>
