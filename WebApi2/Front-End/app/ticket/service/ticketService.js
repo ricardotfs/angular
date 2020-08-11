@@ -21,4 +21,3 @@ angular.module('AngularAuthApp').factory('ticketService', ['$http', 'ngAuthSetti
         }
         return objFactory;
     }]);
-;
