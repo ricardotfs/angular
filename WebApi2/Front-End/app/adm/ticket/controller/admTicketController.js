@@ -22,4 +22,7 @@
                 return choice.id === $scope.choices[$scope.choices.length - 1].id;
             };
 
+            $scope.salvar = function () {
+
+            }
         }])
