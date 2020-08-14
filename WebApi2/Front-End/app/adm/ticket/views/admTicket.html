@@ -1,38 +1,18 @@
 ﻿<div class="container">
     <h1>Ticket - configuração de campos</h1>
     <hr />
-
-    <div data-ng-repeat="choice in choices">
-
-        <form class="form-inline" style="padding-top:5px">
-            <div class="form-group mb-2">
-                <button class="btn btn-primary" ng-show="showAddChoice(choice)" ng-click="addNewChoice(type.value,choice.name)">Add Campo</button>
-            </div>
-            <div class="form-group mx-sm-2 mb-2">
-                <button class="btn btn-primary" ng-click="removeNewChoice()">Remove Campo</button>
-            </div>
-
-            <div class="form-group mx-sm-4 mb-4">
-                <input class="form-control " type="text" ng-modal="{{choice.nome}}" name="" placeholder="Digite o nome do campo" value="{{choice.nome}}">
-            </div>
-            <div class="form-group mx-sm-4 mb-4">
-                <select class="form-control" style="width:160px!important">
-                    <option ng-repeat="type in types" id="{{type.value}}" value="{{type.value}}" ng-selected="{{type.value == choice.tipo}}"  label="{{type.text}}">{{type.text}}</option>
-                </select>
-            </div>
-        </form>
-    </div>
-    <hr />
+    <adm choices="choices"></adm>
     <button class="btn btn-primary" ng-click="salvar()">Salvar</button>
+    <a class="btn btn-primary"href="#/home" >Voltar</a>
 </div>
 
-    <style>
-        input {
-            width: 200px;
-        }
+<style>
+    input {
+        width: 200px;
+    }
 
-        select {
-            width: 200px;
-            height: 23px;
-        }
-    </style>
+    select {
+        width: 200px;
+        height: 23px;
+    }
+</style>

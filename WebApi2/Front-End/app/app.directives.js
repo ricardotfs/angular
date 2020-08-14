@@ -54,6 +54,46 @@ angular.module('AngularAuthApp').directive('formulariogvp', function () {
     }
 
 });
+angular.module('AngularAuthApp').directive('adm', function () {
+    try {
+        return {
+            restrict: "AE",
+            templateUrl: "app/templates/adm.html",
+            replace: true,
+            scope: {
+                choices: "="
+            },
+            link: function (scope, element, dados) {
+
+                scope.choices = scope.choices;
+                scope.types = [{ value: 0, text: "String" }, { value: 1, text: "Int" }];
+
+                scope.addNewChoice = function () {
+                    var newItemNo = scope.choices.length + 1;
+                    scope.choices.push({ id: '', nome: '', tipo: '' });
+                };
+
+                scope.removeNewChoice = function () {
+                    var newItemNo = scope.choices.length - 1;
+                    if (newItemNo !== 0) {
+                        scope.choices.pop();
+                    }
+                };
+
+                scope.showAddChoice = function (choice) {
+                    return choice.id === scope.choices[scope.choices.length - 1].id;
+                };
+
+                //scope.salvar = function () {
+                //    var a = 0;
+                //}
+            }
+        };
+    } catch (e) {
+        console.log(e);
+    }
+
+});
 angular.module('AngularAuthApp').directive('gridgvp', function () {
     try {
         return {
