@@ -11,7 +11,14 @@
 
                 service.getFields($scope.tipoModulo).then(function (result) {
                     $scope.choices = result;
-                   // $scope.choices.push({ id: '', nome: '', tipo: '' });
+                    $scope.choices.push({
+                        id: "",
+                        name: "",
+                        nome: "",
+                        tipo: "",
+                        toolTip: "I",
+                        valor: ""
+                    });
                 });
                
                 //$scope.addNewChoice = function () {
