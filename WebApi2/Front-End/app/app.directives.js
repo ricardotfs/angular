@@ -67,13 +67,16 @@ angular.module('AngularAuthApp').directive('adm', function () {
 
                 scope.choices = scope.choices;
                 scope.types = [{ value: 0, text: "String" }, { value: 1, text: "Int" }];
-                    
+
+                scope.myFunc = function () {
+                    scope.count++;
+                };   
                 scope.addNewChoice = function () {
                     var newItemNo = scope.choices.length + 1;
                     scope.choices.push({
                         id: "",
-                        name:"" ,
-                        nome: "",
+                        name:"asdfsad" ,
+                        nome: "adfasf",
                         tipo: "",
                         toolTip: "I",
                         valor: ""});
