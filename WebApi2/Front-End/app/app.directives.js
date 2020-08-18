@@ -68,9 +68,6 @@ angular.module('AngularAuthApp').directive('adm', function () {
                 scope.choices = scope.choices;
                 scope.types = [{ value: 0, text: 'Texto'}, { value: 1, text: "Combo" }, { value: 2, text: "E-mail" }];
 
-                scope.myFunc = function () {
-                    scope.count++;
-                };   
                 scope.addNewChoice = function () {
                     var newItemNo = scope.choices.length + 1;
                     var choice = scope.choices[scope.choices.length - 1];
@@ -84,13 +81,14 @@ angular.module('AngularAuthApp').directive('adm', function () {
                             choice.id = 'txt' + choice.nome.replace('-', '');
                     }
                     
-
                     scope.choices.push({
                         id: "",
                         nome: "",
                         tipo: "",
                         toolTip: "",
-                        valor: ""});
+                        valor: "",
+                        itens: []
+                    });
                 };
 
                 scope.removeNewChoice = function () {
@@ -100,10 +98,27 @@ angular.module('AngularAuthApp').directive('adm', function () {
                     }
                 };
 
+                scope.addNewOption = function (choice) {
+                    if (choice.itens == undefined)
+                        choice.itens = [];
+
+                    choice.itens.push({ item: '' });
+                };
+
                 scope.showAddChoice = function (choice) {
                     return choice.id === scope.choices[scope.choices.length - 1].id;
                 };
 
+                scope.mostrarItem = function (choice) {
+
+                    //if(choice.tipo == '1')
+                    //    choice.itens = [{ item: '' }];
+                    //else
+                    //    choice.itens = [];
+
+                    return choice.tipo == '1';
+                    
+                };
                 //scope.salvar = function () {
                 //    var a = 0;
                 //}
