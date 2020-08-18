@@ -65,22 +65,23 @@ angular.module('AngularAuthApp').directive('adm', function () {
             },
             link: function (scope, element, dados) {
 
+                scope.valor = { item: '' };
                 scope.choices = scope.choices;
-                scope.types = [{ value: 0, text: 'Texto'}, { value: 1, text: "Combo" }, { value: 2, text: "E-mail" }];
+                scope.types = [{ value: 0, text: 'Texto' }, { value: 1, text: "Combo" }, { value: 2, text: "E-mail" }];
 
                 scope.addNewChoice = function () {
                     var newItemNo = scope.choices.length + 1;
                     var choice = scope.choices[scope.choices.length - 1];
-                    
+
                     switch (choice.tipo) {
                         case '0':
-                            choice.id = 'txt' + choice.nome.replace('-','');
+                            choice.id = 'txt' + choice.nome.replace('-', '');
                         case '1':
                             choice.id = 'cmb' + choice.nome.replace('-', '');
                         case '2':
                             choice.id = 'txt' + choice.nome.replace('-', '');
                     }
-                    
+
                     scope.choices.push({
                         id: "",
                         nome: "",
@@ -102,7 +103,9 @@ angular.module('AngularAuthApp').directive('adm', function () {
                     if (choice.itens == undefined)
                         choice.itens = [];
 
-                    choice.itens.push({ item: '' });
+                    choice.itens.push({ item: scope.valor.item });
+
+                    scope.valor.item = '';
                 };
 
                 scope.showAddChoice = function (choice) {
@@ -110,18 +113,9 @@ angular.module('AngularAuthApp').directive('adm', function () {
                 };
 
                 scope.mostrarItem = function (choice) {
-
-                    //if(choice.tipo == '1')
-                    //    choice.itens = [{ item: '' }];
-                    //else
-                    //    choice.itens = [];
-
                     return choice.tipo == '1';
-                    
                 };
-                //scope.salvar = function () {
-                //    var a = 0;
-                //}
+
             }
         };
     } catch (e) {
@@ -136,7 +130,7 @@ angular.module('AngularAuthApp').directive('gridgvp', function () {
             templateUrl: "app/templates/grid.html",
             replace: true,
             scope: {
-                
+
             },
             link: function (scope, element, dados) {
 
@@ -252,7 +246,7 @@ angular.module('AngularAuthApp').directive('gridgvp', function () {
     }
 
 });
-angular.module('AngularAuthApp').directive('gridgvpcuston', function ($http,ngAuthSettings) {
+angular.module('AngularAuthApp').directive('gridgvpcuston', function ($http, ngAuthSettings) {
     try {
         return {
             restrict: "AE",
