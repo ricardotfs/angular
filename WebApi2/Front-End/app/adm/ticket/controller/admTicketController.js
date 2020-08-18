@@ -13,10 +13,9 @@
                     $scope.choices = result;
                     $scope.choices.push({
                         id: "",
-                        name: "",
                         nome: "",
                         tipo: "",
-                        toolTip: "I",
+                        toolTip: "",
                         valor: ""
                     });
                 });

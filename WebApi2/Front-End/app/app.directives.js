@@ -66,19 +66,30 @@ angular.module('AngularAuthApp').directive('adm', function () {
             link: function (scope, element, dados) {
 
                 scope.choices = scope.choices;
-                scope.types = [{ value: 0, text: "String" }, { value: 1, text: "Int" }];
+                scope.types = [{ value: 0, text: 'Texto'}, { value: 1, text: "Combo" }, { value: 2, text: "E-mail" }];
 
                 scope.myFunc = function () {
                     scope.count++;
                 };   
                 scope.addNewChoice = function () {
                     var newItemNo = scope.choices.length + 1;
+                    var choice = scope.choices[scope.choices.length - 1];
+                    
+                    switch (choice.tipo) {
+                        case '0':
+                            choice.id = 'txt' + choice.nome.replace('-','');
+                        case '1':
+                            choice.id = 'cmb' + choice.nome.replace('-', '');
+                        case '2':
+                            choice.id = 'txt' + choice.nome.replace('-', '');
+                    }
+                    
+
                     scope.choices.push({
                         id: "",
-                        name:"asdfsad" ,
-                        nome: "adfasf",
+                        nome: "",
                         tipo: "",
-                        toolTip: "I",
+                        toolTip: "",
                         valor: ""});
                 };
 

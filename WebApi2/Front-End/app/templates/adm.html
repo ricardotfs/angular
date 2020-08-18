@@ -6,7 +6,10 @@
                 <input class="form-control " type="text" ng-modal="choice" name="" ng-model="choice.nome" placeholder="Digite o nome do campo" value="{{choice.nome}}">
             </div>
             <div class="form-group mx-sm-4 mb-4">
-                <select class="form-control" style="width:160px!important" >
+                <input class="form-control " type="text" ng-modal="choice" name="" ng-model="choice.toolTip" placeholder="Digite descrição do campo" value="{{choice.toolTip}}">
+            </div>
+            <div class="form-group mx-sm-4 mb-4">
+                <select class="form-control" style="width:160px!important" ng-model="choice.tipo">
                     <option ng-repeat="type in types" id="{{type.value}}" value="{{type.value}}" ng-selected="{{type.value == choice.tipo}}" label="{{type.text}}">{{type.text}}</option>
                 </select>
             </div>
