@@ -85,6 +85,7 @@ angular.module('AngularAuthApp').directive('adm', function () {
                     scope.choices.push({
                         id: "",
                         nome: "",
+                        item:'',
                         tipo: "",
                         toolTip: "",
                         valor: "",
@@ -99,13 +100,13 @@ angular.module('AngularAuthApp').directive('adm', function () {
                     }
                 };
 
-                scope.addNewOption = function (choice,item) {
+                scope.addNewOption = function (choice) {
                     if (choice.itens == undefined)
                         choice.itens = [];
 
-                    choice.itens.push({ item: item });
+                    choice.itens.push({ item: choice.item });
 
-                    scope.valor.item = '';
+                    choice.item = '';
                 };
 
                 scope.showAddChoice = function (choice) {
