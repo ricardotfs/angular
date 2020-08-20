@@ -99,11 +99,11 @@ angular.module('AngularAuthApp').directive('adm', function () {
                     }
                 };
 
-                scope.addNewOption = function (choice) {
+                scope.addNewOption = function (choice,item) {
                     if (choice.itens == undefined)
                         choice.itens = [];
 
-                    choice.itens.push({ item: scope.valor.item });
+                    choice.itens.push({ item: item });
 
                     scope.valor.item = '';
                 };

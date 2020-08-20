@@ -31,7 +31,7 @@
                         <option ng-repeat="item in choice.itens" value="{{item.item}}" label="{{item.item}}">{{item.item}}</option>
                     </select>
                     <div class="form-group mb-1">
-                        <button class="btn btn-primary" ng-click="addNewOption(choice)">Add</button>
+                        <button class="btn btn-primary" ng-click="addNewOption(choice,valor.item)">Add</button>
                     </div>
                     <div class="form-group mx-sm-1 mb-1">
                         <button class="btn btn-primary">Remove</button>
