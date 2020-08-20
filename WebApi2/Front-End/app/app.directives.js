@@ -54,19 +54,35 @@ angular.module('AngularAuthApp').directive('formulariogvp', function () {
     }
 
 });
-angular.module('AngularAuthApp').directive('adm', function () {
+angular.module('AngularAuthApp').directive('adm', function ($http) {
     try {
         return {
             restrict: "AE",
             templateUrl: "app/templates/adm.html",
             replace: true,
             scope: {
-                choices: "="
+                choices: "=",
+                tipomodulo: "@tipomodulo"
             },
             link: function (scope, element, dados) {
 
                 scope.valor = { item: '' };
                 scope.choices = scope.choices;
+                scope.tipomodulo = dados.tipomodulo;
+
+                $http.get(serviceBase + 'api/adm/getFields?tipoModulo=' + scope.tipomodulo).then(function (response) {
+                    scope.choices = response.data.data.campos;
+                    scope.choices.push({
+                        id: "",
+                        nome: "",
+                        item: "",
+                        itens: [],
+                        tipo: "",
+                        toolTip: "",
+                        valor: ""
+                    });
+                });
+
                 scope.types = [{ value: 0, text: 'Texto' }, { value: 1, text: "Combo" }, { value: 2, text: "E-mail" }];
 
                 scope.addNewChoice = function () {
@@ -85,7 +101,7 @@ angular.module('AngularAuthApp').directive('adm', function () {
                     scope.choices.push({
                         id: "",
                         nome: "",
-                        item:'',
+                        item: "",
                         tipo: "",
                         toolTip: "",
                         valor: "",

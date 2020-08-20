@@ -76,14 +76,29 @@ app.config(function ($stateProvider, $locationProvider, $urlRouterProvider) {
             url: "/admticket", // root route
             views: {
                 "lazyLoadView": {
-                    controller: 'admTicketController', // This view will use AppCtrl loaded below in the resolve
+                    controller: 'admController', // This view will use AppCtrl loaded below in the resolve
                     templateUrl: 'app/adm/views/admTicket.html'
                 }
             },
             resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
                     // you can lazy load files for an existing module
-                    return $ocLazyLoad.load('app/adm/controller/admTicketController.js?v=' + noCache);
+                    return $ocLazyLoad.load('app/adm/controller/admController.js?v=' + noCache);
+                }]
+            }
+        })
+        .state('admtelefone', {
+            url: "/admtelefone", // root route
+            views: {
+                "lazyLoadView": {
+                    controller: 'admController', // This view will use AppCtrl loaded below in the resolve
+                    templateUrl: 'app/adm/views/admTelefone.html'
+                }
+            },
+            resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
+                loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    // you can lazy load files for an existing module
+                    return $ocLazyLoad.load('app/adm/controller/admController.js?v=' + noCache);
                 }]
             }
         })

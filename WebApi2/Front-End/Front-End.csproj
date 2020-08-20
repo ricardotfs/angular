@@ -67,13 +67,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\adm\views\admTelefone.html" />
     <Content Include="app\app.directives.js" />
     <Content Include="app\app.js" />
     <Content Include="app\app.run.js" />
     <Content Include="app\controllers\homeController.js" />
     <Content Include="app\controllers\indexController.js" />
     <Content Include="app\controllers\loginController.js" />
-    <Content Include="app\adm\controller\admTicketController.js" />
+    <Content Include="app\adm\controller\admController.js" />
     <Content Include="app\adm\service\admService.js" />
     <Content Include="app\adm\views\admTicket.html" />
     <Content Include="app\services\authInterceptorService.js" />
