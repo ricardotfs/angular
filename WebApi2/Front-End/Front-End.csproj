@@ -73,9 +73,9 @@
     <Content Include="app\controllers\homeController.js" />
     <Content Include="app\controllers\indexController.js" />
     <Content Include="app\controllers\loginController.js" />
-    <Content Include="app\adm\ticket\controller\admTicketController.js" />
-    <Content Include="app\adm\ticket\service\admTicketService.js" />
-    <Content Include="app\adm\ticket\views\admTicket.html" />
+    <Content Include="app\adm\controller\admTicketController.js" />
+    <Content Include="app\adm\service\admService.js" />
+    <Content Include="app\adm\views\admTicket.html" />
     <Content Include="app\services\authInterceptorService.js" />
     <Content Include="app\services\authService.js" />
     <Content Include="app\templates\adm.html" />

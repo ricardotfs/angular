@@ -3,7 +3,7 @@
         function ($scope, $location, $injector, $ocLazyLoad) {
             $scope.tipoModulo = 6;
 
-            $ocLazyLoad.load('/app/adm/ticket/service/admTicketService.js').then(function () {
+            $ocLazyLoad.load('/app/adm/service/admService.js').then(function () {
 
                 var service = $injector.get('admTicketService');
 

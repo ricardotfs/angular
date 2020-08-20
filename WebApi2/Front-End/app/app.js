@@ -77,13 +77,13 @@ app.config(function ($stateProvider, $locationProvider, $urlRouterProvider) {
             views: {
                 "lazyLoadView": {
                     controller: 'admTicketController', // This view will use AppCtrl loaded below in the resolve
-                    templateUrl: 'app/adm/ticket/views/admTicket.html'
+                    templateUrl: 'app/adm/views/admTicket.html'
                 }
             },
             resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
                     // you can lazy load files for an existing module
-                    return $ocLazyLoad.load('app/adm/ticket/controller/admTicketController.js?v=' + noCache);
+                    return $ocLazyLoad.load('app/adm/controller/admTicketController.js?v=' + noCache);
                 }]
             }
         })
