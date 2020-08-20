@@ -93,11 +93,15 @@ angular.module('AngularAuthApp').directive('adm', function () {
                     });
                 };
 
-                scope.removeNewChoice = function () {
-                    var newItemNo = scope.choices.length - 1;
-                    if (newItemNo !== 0) {
-                        scope.choices.pop();
-                    }
+                scope.removeNewChoice = function (choice) {
+
+                    var removeIndex = scope.choices.map(item => item.id).indexOf(choice.id);
+
+                    scope.choices.splice(removeIndex, 1);
+                   // var newItemNo = scope.choices.length - 1;
+                   // if (newItemNo !== 0) {
+                   //     scope.choices.pop();
+                   // }
                 };
 
                 scope.addNewOption = function (choice) {

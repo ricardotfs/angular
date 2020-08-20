@@ -18,7 +18,7 @@
                     <button class="btn btn-primary" ng-show="showAddChoice(choice)" ng-click="addNewChoice()">Add Campo</button>
                 </div>
                 <div class="form-group mx-sm-2 mb-2">
-                    <button class="btn btn-primary" ng-click="removeNewChoice()">Remove Campo</button>
+                    <button class="btn btn-primary" ng-click="removeNewChoice(choice)">Remove Campo</button>
                 </div>
             </div>
 
@@ -27,7 +27,7 @@
                     <div class="form-group mx-sm-4 mb-4">
                         <input class="form-control" type="text" ng-model="choice.item"  placeholder="Digite o nome do campo" value="{{choice.item}}">
                     </div>
-                    <select class="form-control mx-sm-4 mb-4"  style="width:160px!important">
+                    <select class="custom-select form-control mx-sm-4 mb-4 "  style="width:160px!important">
                         <option ng-repeat="item in choice.itens" value="{{item.item}}" label="{{item.item}}">{{item.item}}</option>
                     </select>
                     <div class="form-group mb-1">
