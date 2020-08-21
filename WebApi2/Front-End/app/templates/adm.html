@@ -25,9 +25,9 @@
             <div class="row">
                 <div ng-show="mostrarItem(choice)">
                     <div class="form-group mx-sm-4 mb-4">
-                        <input class="form-control" type="text" ng-model="choice.item"  placeholder="Digite o nome do campo" value="{{choice.item}}">
+                        <input class="form-control" type="text" ng-model="choice.item" placeholder="Digite o nome do campo" value="{{choice.item}}">
                     </div>
-                    <select class="custom-select form-control mx-sm-4 mb-4 "  style="width:160px!important">
+                    <select class="custom-select form-control mx-sm-4 mb-4 " style="width:160px!important">
                         <option ng-repeat="item in choice.itens" value="{{item.item}}" label="{{item.item}}">{{item.item}}</option>
                     </select>
                     <div class="form-group mb-1">
@@ -43,9 +43,10 @@
 
             </div>
         </form>
-
     </div>
     <hr />
+    <button class="btn btn-primary" ng-click="salvar()">Salvar</button>
+    <a class="btn btn-primary" href="#/home">Voltar</a>
 </div>
 
 

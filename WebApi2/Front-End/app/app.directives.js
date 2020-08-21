@@ -132,6 +132,10 @@ angular.module('AngularAuthApp').directive('adm', function ($http) {
                     return choice.tipo == '1';
                 };
 
+                scope.salvar = function () {
+
+                    var a = 10;
+                };
             }
         };
     } catch (e) {
