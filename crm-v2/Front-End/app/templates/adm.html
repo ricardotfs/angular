@@ -1,0 +1,52 @@
+﻿<div>
+    <div ng-repeat="choice in choices">
+
+        <form class="form-inline" style="padding-top:5px">
+            <div class="row">
+                <div class="form-group mx-sm-4 mb-4">
+                    <input class="form-control " type="text" name="" ng-model="choice.nome" placeholder="Digite o nome do campo" value="{{choice.nome}}">
+                </div>
+                <div class="form-group mx-sm-4 mb-4">
+                    <input class="form-control " type="text" name="" ng-model="choice.toolTip" placeholder="Digite descrição do campo" value="{{choice.toolTip}}">
+                </div>
+                <div class="form-group mx-sm-4 mb-4">
+                    <select class="form-control" style="width:160px!important" ng-model="choice.tipo">
+                        <option ng-repeat="type in types" id="{{type.value}}" value="{{type.value}}" ng-selected="{{type.value == choice.tipo}}" label="{{type.text}}">{{type.text}}</option>
+                    </select>
+                </div>
+                <div class="form-group mb-2">
+                    <button class="btn btn-primary" ng-show="showAddChoice(choice)" ng-click="addNewChoice()">Add Campo</button>
+                </div>
+                <div class="form-group mx-sm-2 mb-2">
+                    <button class="btn btn-primary" ng-click="removeNewChoice(choice)">Remove Campo</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div ng-show="mostrarItem(choice)">
+                    <div class="form-group mx-sm-4 mb-4">
+                        <input class="form-control" type="text" ng-model="choice.item" placeholder="Digite o nome do campo" value="{{choice.item}}">
+                    </div>
+                    <select class="custom-select form-control mx-sm-4 mb-4 " style="width:160px!important">
+                        <option ng-repeat="item in choice.itens" value="{{item.item}}" label="{{item.item}}">{{item.item}}</option>
+                    </select>
+                    <div class="form-group mb-1">
+                        <button class="btn btn-primary" ng-click="addNewOption(choice)">Add</button>
+                    </div>
+                    <div class="form-group mx-sm-1 mb-1">
+                        <button class="btn btn-primary">Remove</button>
+                    </div>
+                    <div class="mx-sm-2 mb-2">
+
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <hr />
+    <button class="btn btn-primary" ng-click="salvar()">Salvar</button>
+    <a class="btn btn-primary" href="#/home">Voltar</a>
+</div>
+
+

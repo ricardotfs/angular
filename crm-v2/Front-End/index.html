@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br" data-ng-app="AngularAuthApp" ng-controller="indexController">
+<head>
+    <title>::  ::</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="pt-br">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="pragma" content="no-cache" />
+
+    <link href="css/theme-white.css" rel="stylesheet" type="text/css" id="theme" />
+    <style>
+
+    </style>
+
+</head>
+<body>
+
+    <div class="page-container container">
+        <div class="page-container">
+            <div class="mb-content">
+                <br>
+                <br>
+                <a class="" href="/#/admticket">Adm ticket</a>
+                <br>
+                <a class="" href="/#/admtelefone">Adm telefone</a>
+                <br>
+                <a class="" href="/#/ticket">Ticket</a>
+            </div>
+        </div>
+
+        <div class="page-content">
+            <button href="#" class="mb-control  btn btn-danger btn-sm" data-box="#mb-signout" style="margin-top:10px;"><span class="fa fa-sign-out"></span>Sair</button>
+            <div id="loading-bar"></div>
+            <div ui-view="lazyLoadView"></div>
+        </div>
+    </div>
+
+    <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
+        <div class="mb-container">
+            <div class="mb-middle">
+                <div class="mb-title"><span class="fa fa-sign-out"></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content">
+                    <p>Deseja realmente sair do sistema?</p>
+                    <p>Pressione Não se você quer continuar trabalhando. Pressione Sim se deseja realmente sair.</p>
+                </div>
+                <div class="mb-footer">
+                    <div class="pull-right">
+                        <button class="btn btn-success btn-lg mb-control-close" ng-click="logOut()">Sim</button>
+                        <button class="btn btn-default btn-lg mb-control-close">Não</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
+    <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
+   
+    <script src="js/xlsx.full.min.js"></script>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-ui-router.min.js"></script>
+    <script src="js/angular-local-storage.min.js"></script>
+    <script src="js/ocLazyLoad.min.js"></script>
+
+    <!-- Load app -->
+    <script src="app/app.js"></script>
+    <script src="app/app.directives.js"></script>
+    <script src="app/app.run.js"></script>
+
+    <!-- Load services -->
+    <script src="app/services/authInterceptorService.js"></script>
+    <script src="app/services/authService.js"></script>
+
+    <!-- Load controllers -->
+    <script src="app/controllers/indexController.js"></script>
+     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.7.0/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.7.0/angular-touch.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.7.0/angular-animate.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.7.0/angular-aria.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/csv.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/vfs_fonts.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/lodash.min.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/jszip.min.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/excel-builder.dist.js"></script>
+    <script src="http://ui-grid.info/release/ui-grid.js"></script>
+    <link rel="stylesheet" href="http://ui-grid.info/release/ui-grid.css" type="text/css">
+
+
+    <!-- Load theme -->
+    <script type="text/javascript" src="js/jquery.mCustomScrollbar.min.js"></script>
+    <script type="text/javascript" src="js/plugins.js"></script>
+    <script type="text/javascript" src="js/actions.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+

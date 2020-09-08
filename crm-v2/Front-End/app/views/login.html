@@ -1,0 +1,43 @@
+﻿
+<div class="login-container">
+
+    <div class="login-box animated fadeInDown">
+        <div class="row" style="margin-top:50px;">
+            <form class="form-horizontal" method="post" role="form" style="border: 1px solid #ccc;padding: 30px;border-radius: 30px;background-color: #ffffff;">
+
+                <div class="login-logo"></div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <select class="form-control  nya-selectpicker" data-live-search="true" ng-model="loginData.unidadeId">
+                            <option value="">--Unidade de acesso--</option>
+                            <option ng-repeat="x in unidades" value="{{x.id}}">{{x.descricao}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" placeholder="Login" ng-model="loginData.userName" value="leandro.sw" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input type="password" class="form-control" placeholder="Senha" ng-model="loginData.password" value="123456" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <button class="btn btn-primary btn-block" data-ng-click="login()">Entrar</button>
+                    </div>
+                    <div class="col-md-12" style="margin-top:10px;" data-ng-hide="message == ''">
+                        <div class="alert alert-danger">
+                            {{message}}
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

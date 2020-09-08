@@ -1,0 +1,18 @@
+﻿    <div>
+        <div ng-repeat="form in formulario" class="form-group col-lg-12">
+            <!--
+           <div ng-if="form.tipo == 'date'">
+        <div tooltip="{{form.toolTip}}" editable id="{{form.id}}" class="input-group date datepicker" ng-model="form.valor" placeholder="Enter {{form.nome}}" data-date-format="mm-dd-yyyy">
+            <input class="form-control" ng-model="form.valor" type="text" />
+            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+        </div>
+    </div>-->
+            <div ng-if="form.tipo != 'date'">
+                <label for="{{form.id}}">{{form.nome}}</label>
+                <input tooltip="{{form.toolTip}}" type="text" class="form-control" id="{{form.id}}" ng-model="form.valor" value="{{form.valor}}" placeholder="Enter {{form.nome}}">
+            </div>
+        </div>
+        <br /><br />
+    </div>
+
+

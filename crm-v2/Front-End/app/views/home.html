@@ -1,0 +1,28 @@
+﻿
+    <div>
+        <button ng-click="logOut()">SAIR</button>
+        <hr />
+        <menucliente nomepessoa="variavel"></menucliente>
+
+        <input type="file" id="fupload" name="fupload" multiple="" />
+        <a class="btn btn-success" ng-click="notify()">Noti</a><b></b>
+        <a class="btn btn-success" ng-click="mudarFoto()">Salvar</a><b></b>
+        <a class="btn btn-success" ng-click="import()">Importar</a>
+        <a class="btn btn-success" href="/#/detailTicket">Ticket</a>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>NOME</th>
+                    <th>TEL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in table">
+                    <td><input type="text" value="{{ item.nome }}" /></td>
+                    <td><input type="text" value="{{ item.telefone }}" /></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
