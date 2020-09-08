@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Base.cs" />
+    <Compile Include="Entities\Formulario.cs" />
     <Compile Include="Enums\TipoCampo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValueObjects\Campo.cs" />
@@ -52,7 +54,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commands\" />
-    <Folder Include="Entities\" />
     <Folder Include="Handlers\" />
     <Folder Include="Queries\" />
     <Folder Include="Repositories\" />
