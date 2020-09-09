@@ -44,19 +44,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CampoCommand.cs" />
+    <Compile Include="Commands\CommandResult.cs" />
+    <Compile Include="Commands\FormularioCommand.cs" />
+    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\ICommandResult.cs" />
     <Compile Include="Entities\Base.cs" />
     <Compile Include="Entities\Formulario.cs" />
     <Compile Include="Enums\TipoCampo.cs" />
+    <Compile Include="Handlers\FormularioHandlers.cs" />
+    <Compile Include="Handlers\IHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\FormularioQueries.cs" />
+    <Compile Include="Repositories\IFormularioRepository.cs" />
     <Compile Include="ValueObjects\Campo.cs" />
     <Compile Include="ValueObjects\Item.cs" />
     <Compile Include="ValueObjects\ValueObject.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Commands\" />
-    <Folder Include="Handlers\" />
-    <Folder Include="Queries\" />
-    <Folder Include="Repositories\" />
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>

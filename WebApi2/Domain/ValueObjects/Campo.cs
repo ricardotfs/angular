@@ -58,11 +58,21 @@ namespace Domain.ValueObjects
 
             return true;
         }
+        public bool Validar(string value)
+        {
+            if (_itens.Any(p => p.Valor == value))
+                return false;
+
+            return true;
+        }
         public void AddItem(Item item)
         {
             AddNotifications(new Contract()
             .Requires()
-                .AreNotEquals(0, item.Valor, "Campo.Item", "Este Campo é inválido"));
+                .AreNotEquals(0, item.Valor, "Campo.Item", "Este Campo é obrigatório")
+                .IsFalse(Validar(item.Valor), "Campo.Item.Valor", "Este este valor ja foi cadastrado.")
+                );
+
 
             if (Valid)
                 _itens.Add(item);

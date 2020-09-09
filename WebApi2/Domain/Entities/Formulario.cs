@@ -31,8 +31,15 @@ namespace Domain.Entities
         {
             var valid = campo != null;
 
-            if (valid)
+            if (valid && Validate(campo.Nome))
                 _campos.Add(campo);
+        }
+        public bool Validate(string nome)
+        {
+            if (_campos.Any(p => p.Nome == nome))
+                return false;
+
+            return true;
         }
     }
 }
