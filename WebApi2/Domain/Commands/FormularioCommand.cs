@@ -10,7 +10,6 @@ namespace Domain.Commands
 {
     public class FormularioCommand : Notifiable, ICommand
     {
-
         public int Id { get; set; }
         public List<CampoCommand> Campos { get; set; }
         public void Validate()
