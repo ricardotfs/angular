@@ -1,0 +1,72 @@
+[
+  {
+    "id": 0,
+    "guid": "de3db502-0a33-4e47-a0bb-35b6235503ca",
+    "isActive": false,
+    "balance": "$3,489.00",
+    "picture": "http://placehold.it/32x32",
+    "age": 30,
+    "name": "Sandoval Mclean",
+    "gender": "male",
+    "company": "Zolavo",
+    "email": "sandovalmclean@zolavo.com",
+    "phone": "+1 (902) 569-2412",
+    "address": {
+      "street": 317,
+      "city": "Blairstown",
+      "state": "Maine",
+      "zip": 390
+    },
+    "about": "Fugiat velit laboris sit est. Amet eu consectetur reprehenderit proident irure non. Adipisicing mollit veniam enim veniam officia anim proident excepteur deserunt consectetur aliquip et irure. Elit aliquip laborum qui elit consectetur sit proident adipisicing.\r\n",
+    "registered": "1991-02-21T23:02:31+06:00",
+    "friends": [
+      {
+        "id": 0,
+        "name": "Rosanne Barrett"
+      },
+      {
+        "id": 1,
+        "name": "Nita Chase"
+      },
+      {
+        "id": 2,
+        "name": "Briggs Stark"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "guid": "9f507483-5ecc-4af4-800f-349306820585",
+    "isActive": false,
+    "balance": "$2,407.00",
+    "picture": "http://placehold.it/32x32",
+    "age": 22,
+    "name": "Nieves Mack",
+    "gender": "male",
+    "company": "Oulu",
+    "email": "nievesmack@oulu.com",
+    "phone": "+1 (812) 535-2614",
+    "address": {
+      "street": 155,
+      "city": "Cherokee",
+      "state": "Kentucky",
+      "zip": 4723
+    },
+    "about": "Culpa anim anim nulla deserunt dolor exercitation eu in anim velit. Consectetur esse cillum ea esse ullamco magna do voluptate sit ut cupidatat ullamco. Et consequat eu excepteur do Lorem aute est quis proident irure.\r\n",
+    "registered": "1989-07-26T15:52:15+05:00",
+    "friends": [
+      {
+        "id": 0,
+        "name": "Brewer Maxwell"
+      },
+      {
+        "id": 1,
+        "name": "Ayala Franks"
+      },
+      {
+        "id": 2,
+        "name": "Hale Nichols"
+      }
+    ]
+  }
+]
