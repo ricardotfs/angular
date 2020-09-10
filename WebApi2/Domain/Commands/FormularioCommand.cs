@@ -16,7 +16,7 @@ namespace Domain.Commands
         {
             AddNotifications(new Contract()
                 .Requires()
-                .IsGreaterThan(0, Campos.Count, "Formulario.Campos", "Campos deve ter pelo menos um item")
+                .IsGreaterThan(Campos.Count, 0, "Formulario.Campos", "Campos deve ter pelo menos um item")
                 );
         }
     }

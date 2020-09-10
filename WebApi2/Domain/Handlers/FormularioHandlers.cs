@@ -21,7 +21,7 @@ namespace Domain.Handlers
             _repository = repository;
         }
 
-        public ICommandResult Handle(FormularioCommand command)
+        public ICommandResult Handler(FormularioCommand command)
         {
             var formulario = new Formulario();
 
@@ -35,10 +35,10 @@ namespace Domain.Handlers
             foreach (var item in command.Campos)
             {
                 formulario.AddItem(new Campo(item.Nome, item.TipoCampo, item.Valor, item.Descricao, item.Obrigatorio));
-                AddNotifications(item);
+                AddNotification("Email", "Este E-mail já está em uso");
             }
 
-            if (Invalid)
+            if (formulario.Invalid)
                 return new CommandResult(false, "Não foi possível criar o formulario");
 
             _repository.CreateFormulario(formulario);

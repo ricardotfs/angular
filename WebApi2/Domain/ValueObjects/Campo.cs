@@ -38,7 +38,6 @@ namespace Domain.ValueObjects
             AddNotifications(new Contract()
                 .Requires()
                 .HasMinLen(Nome, 1, "Campo.Nome", "Nome deve conter pelo menos 1 caracteres")
-                .IsTrue(Validar(), "Campo.Valor", "Valor é obrigatório")
             );
 
             _itens = new List<Item>();
@@ -51,14 +50,11 @@ namespace Domain.ValueObjects
         public bool Obrigatorio { get; private set; }
         public IReadOnlyCollection<Item> Items { get { return _itens.ToArray(); } }
 
-        public bool Validar()
+        private bool Validar()
         {
-            if (Obrigatorio)
-                return TipoCampo == TipoCampo.Texto && !string.IsNullOrWhiteSpace(Valor);
-
-            return true;
+            return Obrigatorio ? !string.IsNullOrWhiteSpace(Valor) : true;
         }
-        public bool Validar(string value)
+        private bool Validar(string value)
         {
             if (_itens.Any(p => p.Valor == value))
                 return false;

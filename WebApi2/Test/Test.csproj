@@ -53,6 +53,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\FormularioCommandTest.cs" />
+    <Compile Include="Handler\FormularioHandlersTest.cs" />
+    <Compile Include="Mocks\FakeFormularioRepository.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

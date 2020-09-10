@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Domain.Entities
 {
-    public class Formulario: Base
+    public class Formulario : Base
     {
         private IList<Campo> _campos;
 
@@ -26,20 +26,22 @@ namespace Domain.Entities
         }
         public IReadOnlyCollection<Campo> Campos { get { return _campos.ToArray(); } }
 
-  
+
         public void AddItem(Campo campo)
         {
-            var valid = campo != null;
+            var exist = Validate(campo.Nome);
 
-            if (valid && Validate(campo.Nome))
+            AddNotifications(new Contract()
+                .Requires()
+                .IsFalse(exist, "Campo", "Ja existe um campo com o mesmo nome cadastrado.")
+           );
+
+            if (Valid)
                 _campos.Add(campo);
         }
         public bool Validate(string nome)
         {
-            if (_campos.Any(p => p.Nome == nome))
-                return false;
-
-            return true;
+            return _campos.Any(p => p.Nome == nome);
         }
     }
 }

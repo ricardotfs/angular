@@ -9,6 +9,6 @@ namespace Domain.Handlers
 {
     public interface IHandler<T> where T : ICommand
     {
-        ICommandResult Handle(T command);
+        ICommandResult Handler(T command);
     }
 }
