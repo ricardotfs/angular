@@ -1,5 +1,6 @@
 ﻿using Domain.Commands;
 using Domain.Entities;
+using Domain.Enums;
 using Domain.Queries;
 using Domain.Repositories;
 using Domain.ValueObjects;
@@ -34,8 +35,23 @@ namespace Domain.Handlers
 
             foreach (var item in command.Campos)
             {
-                formulario.AddItem(new Campo(item.Nome, item.TipoCampo, item.Valor, item.Descricao, item.Obrigatorio));
-                AddNotification("Email", "Este E-mail já está em uso");
+                if (item.TipoCampo == TipoCampo.Combo)
+                {
+                    var combo = new Combo(item.Nome, item.TipoCampo, item.Valor, item.Descricao, item.Obrigatorio);
+
+                    foreach (var valor in item.Items)
+                        combo.AddItem(new Item(valor));
+                    
+                    formulario.AddItem(combo);
+                    AddNotifications(combo);
+                }
+                else
+                {
+                    var campo = new Campo(item.Nome, item.TipoCampo, item.Valor, item.Descricao, item.Obrigatorio);
+                    formulario.AddItem(campo);
+                    AddNotifications(campo);
+                }
+               
             }
 
             if (formulario.Invalid)
