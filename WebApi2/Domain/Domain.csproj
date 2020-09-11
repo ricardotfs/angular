@@ -58,6 +58,7 @@
     <Compile Include="Queries\FormularioQueries.cs" />
     <Compile Include="Repositories\IFormularioRepository.cs" />
     <Compile Include="ValueObjects\Campo.cs" />
+    <Compile Include="ValueObjects\Combo.cs" />
     <Compile Include="ValueObjects\Item.cs" />
     <Compile Include="ValueObjects\ValueObject.cs" />
   </ItemGroup>
