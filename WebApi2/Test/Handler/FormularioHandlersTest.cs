@@ -39,7 +39,7 @@ namespace Test.Handler
             campoCommand.Items = new List<string>() { "Selecione", "São Paulo", "Rio de Janeiro" };
 
             var campoCommand1 = new CampoCommand();
-            campoCommand1.Nome = "Teste Nome";
+            campoCommand1.Nome = "Teste Nome"; xc
             campoCommand1.TipoCampo = TipoCampo.Combo;
             campoCommand1.Valor = "Teste Valor";
             campoCommand1.Descricao = "Teste Descricao";
